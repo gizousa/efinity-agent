@@ -50,6 +50,11 @@ import {
   revokeDeviceToken,
   rotateDeviceToken,
 } from "./controllers/devices";
+import {
+  loadDMPairing,
+  approveDMPairing,
+  rejectDMPairing,
+} from "./controllers/dm-pairing";
 import { renderSkills } from "./views/skills";
 import { renderChatControls, renderTab, renderThemeToggle } from "./app-render.helpers";
 import { loadChannels } from "./controllers/channels";
@@ -133,10 +138,10 @@ export function renderApp(state: AppViewState) {
           </button>
           <div class="brand">
             <div class="brand-logo">
-              <img src="https://mintcdn.com/clawhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&auto=format&n=4rYvG-uuZrMK_URE&q=85&s=da2032e9eac3b5d9bfe7eb96ca6a8a26" alt="OpenClaw" />
+              <img src="https://mintcdn.com/clawhub/4rYvG-uuZrMK_URE/assets/pixel-lobster.svg?fit=max&auto=format&n=4rYvG-uuZrMK_URE&q=85&s=da2032e9eac3b5d9bfe7eb96ca6a8a26" alt="Phoenix" />
             </div>
             <div class="brand-text">
-              <div class="brand-title">OPENCLAW</div>
+              <div class="brand-title">PHOENIX</div>
               <div class="brand-sub">Gateway Dashboard</div>
             </div>
           </div>
@@ -370,6 +375,10 @@ export function renderApp(state: AppViewState) {
                 devicesLoading: state.devicesLoading,
                 devicesError: state.devicesError,
                 devicesList: state.devicesList,
+                dmPairingState: state.dmPairingState,
+                onDMPairingRefresh: () => loadDMPairing(state.dmPairingState),
+                onDMPairingApprove: (channel, code) => approveDMPairing(state.dmPairingState, channel, code),
+                onDMPairingReject: (channel, code) => rejectDMPairing(state.dmPairingState, channel, code),
                 configForm:
                   state.configForm ??
                   (state.configSnapshot?.config as Record<string, unknown> | null),

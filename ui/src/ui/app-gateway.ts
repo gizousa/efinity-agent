@@ -1,5 +1,6 @@
 import { loadChatHistory } from "./controllers/chat";
 import { loadDevices } from "./controllers/devices";
+import { loadDMPairing, type DMPairingState } from "./controllers/dm-pairing";
 import { loadNodes } from "./controllers/nodes";
 import { loadAgents } from "./controllers/agents";
 import type { GatewayEventFrame, GatewayHelloOk } from "./gateway";
@@ -49,6 +50,7 @@ type GatewayHost = {
   refreshSessionsAfterChat: Set<string>;
   execApprovalQueue: ExecApprovalRequest[];
   execApprovalError: string | null;
+  dmPairingState: DMPairingState;
 };
 
 type SessionDefaultsSnapshot = {
@@ -133,6 +135,10 @@ export function connectGateway(host: GatewayHost) {
       void loadAgents(host as unknown as OpenClawApp);
       void loadNodes(host as unknown as OpenClawApp, { quiet: true });
       void loadDevices(host as unknown as OpenClawApp, { quiet: true });
+      // Initialize DM pairing state
+      host.dmPairingState.client = host.client;
+      host.dmPairingState.connected = true;
+      void loadDMPairing(host.dmPairingState, { quiet: true });
       void refreshActiveTab(host as unknown as Parameters<typeof refreshActiveTab>[0]);
     },
     onClose: ({ code, reason }) => {
@@ -218,6 +224,10 @@ function handleGatewayEventUnsafe(host: GatewayHost, evt: GatewayEventFrame) {
 
   if (evt.event === "device.pair.requested" || evt.event === "device.pair.resolved") {
     void loadDevices(host as unknown as OpenClawApp, { quiet: true });
+  }
+
+  if (evt.event === "dm.pair.requested" || evt.event === "dm.pair.resolved") {
+    void loadDMPairing(host.dmPairingState, { quiet: true });
   }
 
   if (evt.event === "exec.approval.requested") {

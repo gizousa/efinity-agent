@@ -2,6 +2,16 @@ import AjvPkg, { type ErrorObject } from "ajv";
 import {
   type AgentEvent,
   AgentEventSchema,
+  type DmPairApproveParams,
+  DmPairApproveParamsSchema,
+  type DmPairListParams,
+  DmPairListParamsSchema,
+  type DmPairRejectParams,
+  DmPairRejectParamsSchema,
+  type DmPairRequestedEvent,
+  DmPairRequestedEventSchema,
+  type DmPairResolvedEvent,
+  DmPairResolvedEventSchema,
   type AgentIdentityParams,
   AgentIdentityParamsSchema,
   type AgentIdentityResult,
@@ -319,6 +329,10 @@ export const validateUpdateRunParams = ajv.compile<UpdateRunParams>(UpdateRunPar
 export const validateWebLoginStartParams =
   ajv.compile<WebLoginStartParams>(WebLoginStartParamsSchema);
 export const validateWebLoginWaitParams = ajv.compile<WebLoginWaitParams>(WebLoginWaitParamsSchema);
+export const validateDmPairListParams = ajv.compile<DmPairListParams>(DmPairListParamsSchema);
+export const validateDmPairApproveParams =
+  ajv.compile<DmPairApproveParams>(DmPairApproveParamsSchema);
+export const validateDmPairRejectParams = ajv.compile<DmPairRejectParams>(DmPairRejectParamsSchema);
 
 export function formatValidationErrors(errors: ErrorObject[] | null | undefined) {
   if (!errors?.length) {
@@ -434,6 +448,11 @@ export {
   PROTOCOL_VERSION,
   ErrorCodes,
   errorShape,
+  DmPairListParamsSchema,
+  DmPairApproveParamsSchema,
+  DmPairRejectParamsSchema,
+  DmPairRequestedEventSchema,
+  DmPairResolvedEventSchema,
 };
 
 export type {
@@ -519,4 +538,9 @@ export type {
   PollParams,
   UpdateRunParams,
   ChatInjectParams,
+  DmPairListParams,
+  DmPairApproveParams,
+  DmPairRejectParams,
+  DmPairRequestedEvent,
+  DmPairResolvedEvent,
 };

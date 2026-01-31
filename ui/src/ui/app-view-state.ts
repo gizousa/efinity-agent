@@ -24,6 +24,7 @@ import type { EventLogEntry } from "./app-events";
 import type { SkillMessage } from "./controllers/skills";
 import type { ExecApprovalsFile, ExecApprovalsSnapshot } from "./controllers/exec-approvals";
 import type { DevicePairingList } from "./controllers/devices";
+import type { DMPairingState } from "./controllers/dm-pairing";
 import type { ExecApprovalRequest } from "./controllers/exec-approval";
 import type { NostrProfileFormState } from "./views/channels.nostr-profile-form";
 
@@ -59,6 +60,7 @@ export type AppViewState = {
   devicesLoading: boolean;
   devicesError: string | null;
   devicesList: DevicePairingList | null;
+  dmPairingState: DMPairingState;
   execApprovalsLoading: boolean;
   execApprovalsSaving: boolean;
   execApprovalsDirty: boolean;

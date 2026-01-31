@@ -12,6 +12,8 @@ import type {
   PairedDevice,
   PendingDevice,
 } from "../controllers/devices";
+import type { DMPairingState } from "../controllers/dm-pairing";
+import { renderDMPairing } from "./dm-pairing";
 
 export type NodesProps = {
   loading: boolean;
@@ -19,6 +21,10 @@ export type NodesProps = {
   devicesLoading: boolean;
   devicesError: string | null;
   devicesList: DevicePairingList | null;
+  dmPairingState: DMPairingState;
+  onDMPairingRefresh: () => void;
+  onDMPairingApprove: (channel: string, code: string) => void;
+  onDMPairingReject: (channel: string, code: string) => void;
   configForm: Record<string, unknown> | null;
   configLoading: boolean;
   configSaving: boolean;
@@ -57,6 +63,7 @@ export function renderNodes(props: NodesProps) {
     ${renderExecApprovals(approvalsState)}
     ${renderBindings(bindingState)}
     ${renderDevices(props)}
+    ${renderDMPairingSection(props)}
     <section class="card">
       <div class="row" style="justify-content: space-between;">
         <div>
@@ -124,6 +131,41 @@ function renderDevices(props: NodesProps) {
               `
             : nothing
         }
+      </div>
+    </section>
+  `;
+}
+
+function renderDMPairingSection(props: NodesProps) {
+  const totalRequests = props.dmPairingState.list?.channels?.reduce(
+    (sum, ch) => sum + ch.requests.length,
+    0,
+  ) ?? 0;
+  return html`
+    <section class="card">
+      <div class="row" style="justify-content: space-between;">
+        <div>
+          <div class="card-title">DM Pairing Requests</div>
+          <div class="card-sub">
+            Approve or reject incoming DM pairing requests from messaging channels.
+            ${totalRequests > 0 ? html`<span class="chip">${totalRequests} pending</span>` : nothing}
+          </div>
+        </div>
+        <button
+          class="btn"
+          ?disabled=${props.dmPairingState.loading}
+          @click=${props.onDMPairingRefresh}
+        >
+          ${props.dmPairingState.loading ? "Loading…" : "Refresh"}
+        </button>
+      </div>
+      <div style="margin-top: 16px;">
+        ${renderDMPairing(
+          props.dmPairingState,
+          props.onDMPairingApprove,
+          props.onDMPairingReject,
+          props.onDMPairingRefresh,
+        )}
       </div>
     </section>
   `;

@@ -495,3 +495,47 @@ export async function approveChannelPairingCode(params: {
     },
   );
 }
+
+export async function rejectChannelPairingCode(params: {
+  channel: PairingChannel;
+  code: string;
+  env?: NodeJS.ProcessEnv;
+}): Promise<{ id: string; entry?: PairingRequest } | null> {
+  const env = params.env ?? process.env;
+  const code = params.code.trim().toUpperCase();
+  if (!code) return null;
+
+  const filePath = resolvePairingPath(params.channel, env);
+  return await withFileLock(
+    filePath,
+    { version: 1, requests: [] } satisfies PairingStore,
+    async () => {
+      const { value } = await readJsonFile<PairingStore>(filePath, {
+        version: 1,
+        requests: [],
+      });
+      const reqs = Array.isArray(value.requests) ? value.requests : [];
+      const nowMs = Date.now();
+      const { requests: pruned, removed } = pruneExpiredRequests(reqs, nowMs);
+      const idx = pruned.findIndex((r) => String(r.code ?? "").toUpperCase() === code);
+      if (idx < 0) {
+        if (removed) {
+          await writeJsonFile(filePath, {
+            version: 1,
+            requests: pruned,
+          } satisfies PairingStore);
+        }
+        return null;
+      }
+      const entry = pruned[idx];
+      if (!entry) return null;
+      pruned.splice(idx, 1);
+      await writeJsonFile(filePath, {
+        version: 1,
+        requests: pruned,
+      } satisfies PairingStore);
+      // NOTE: Unlike approveChannelPairingCode, we do NOT add to allowFrom
+      return { id: entry.id, entry };
+    },
+  );
+}
