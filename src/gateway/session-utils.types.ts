@@ -41,6 +41,8 @@ export type GatewaySessionRow = {
   lastChannel?: SessionEntry["lastChannel"];
   lastTo?: string;
   lastAccountId?: string;
+  /** Session key that spawned this subagent session (for parent-child linking). */
+  spawnedBy?: string;
 };
 
 export type GatewayAgentRow = {

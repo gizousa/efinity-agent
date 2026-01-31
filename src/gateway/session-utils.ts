@@ -701,7 +701,7 @@ export function listSessionsFromStore(params: {
         }
       }
     }
-    return { ...rest, derivedTitle, lastMessagePreview } satisfies GatewaySessionRow;
+    return { ...rest, spawnedBy: entry?.spawnedBy, derivedTitle, lastMessagePreview } satisfies GatewaySessionRow;
   });
 
   return {
