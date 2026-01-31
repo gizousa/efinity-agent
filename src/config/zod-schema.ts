@@ -27,6 +27,23 @@ const NodeHostSchema = z
   .strict()
   .optional();
 
+const SmartRouterConfigSchema = z
+  .object({
+    enabled: z.boolean().optional().default(false),
+    lightweightModels: z.array(z.string()).optional(),
+    flagshipModels: z.array(z.string()).optional(),
+    confidenceThreshold: z.number().min(0).max(1).optional(),
+    tokenThreshold: z.number().positive().optional(),
+    flagshipKeywords: z.array(z.string()).optional(),
+    vectorIndexPath: z.string().optional(),
+    defaultModel: z.string().optional(),
+    maxHistoryRecords: z.number().positive().optional(),
+    enableDecisionLog: z.boolean().optional(),
+    decisionLogPath: z.string().optional()
+  })
+  .strict()
+  .optional();
+
 export const OpenClawSchema = z
   .object({
     meta: z
@@ -528,27 +545,20 @@ export const OpenClawSchema = z
       })
       .strict()
       .optional(),
+    smartRouter: SmartRouterConfigSchema,
   })
   .strict()
   .superRefine((cfg, ctx) => {
     const agents = cfg.agents?.list ?? [];
-    if (agents.length === 0) {
-      return;
-    }
+    if (agents.length === 0) return;
     const agentIds = new Set(agents.map((agent) => agent.id));
 
     const broadcast = cfg.broadcast;
-    if (!broadcast) {
-      return;
-    }
+    if (!broadcast) return;
 
     for (const [peerId, ids] of Object.entries(broadcast)) {
-      if (peerId === "strategy") {
-        continue;
-      }
-      if (!Array.isArray(ids)) {
-        continue;
-      }
+      if (peerId === "strategy") continue;
+      if (!Array.isArray(ids)) continue;
       for (let idx = 0; idx < ids.length; idx += 1) {
         const agentId = ids[idx];
         if (!agentIds.has(agentId)) {

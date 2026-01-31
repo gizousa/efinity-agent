@@ -1,0 +1,4372 @@
+[
+    {
+        "text": "你今天过得怎么样？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "推荐几首适合工作时听的轻音乐。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "我有点无聊，陪我聊聊天吧。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你对人工智能的未来怎么看？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "晚安，明天见。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "How's the weather in London right now?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "What are some good hobbies to start this year?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Can you recommend a good movie for a Friday night?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "I'm feeling a bit stressed, any advice?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Tell me a story about a brave little hamster.",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "中国最长的河流是哪一条？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "水在标准大气压下的沸点是多少？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "谁发明了电灯？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "太阳系中最大的行星是哪一颗？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "第二次世界大战是什么时候结束的？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "Who is the CEO of Tesla?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the capital of Australia?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "How many bones are there in the human body?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Which element has the chemical symbol 'O'?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the tallest mountain in the world?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "把这段中文文案翻译成地道的德语。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这个 JSON 对象的键名从下划线改为小驼峰。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "总结下面这段新闻的主要观点。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "从这段 HTML 代码中提取出所有的链接地址。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段非结构化数据整理成 Excel 表格格式。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "Convert this binary string into a readable ASCII text.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Summarize this research paper into three bullet points.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Translate this user manual from English to Spanish.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all the dates and times mentioned in this meeting transcript.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Change the date format in this list from MM/DD/YYYY to DD-MM-YYYY.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "帮我写一个在朋友圈发布的露营文案。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一封感谢信给我的面试官。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "给我的新书起三个吸引人的名字，类型是悬疑小说。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我润色一下这篇关于环保的演讲稿。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "创作一段用于推广新款运动鞋的 15 秒短视频脚本。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "Write a formal apology email to a customer for a shipping delay.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Create a catchy headline for a blog post about remote work productivity.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a short product description for a handmade ceramic mug.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Draft a welcome message for new members of a photography club.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Compose a creative invitation for a 10th-anniversary company party.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "用 Golang 实现一个带过期机制的本地缓存。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "解释这段 Rust 代码中的生命周期标注为什么报错。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我写一个 SQL 查询，统计过去一个月每个用户的总消费金额。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "如何利用 K8s 部署一个高可用的 Redis 集群？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "优化这段嵌套循环的性能，使其时间复杂度降为 O(n)。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "Write a script to automate the backup of a MySQL database to AWS S3.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Implement a custom hook in React for handling debounced input.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Explain how to prevent CSRF attacks in a Python Django application.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Debug this Java NullPointerException in a multithreaded environment.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Create a Dockerfile for a multi-stage build of a Go microservice.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "分析如果全球海平面上升一米，对东南亚经济的潜在影响。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "如果有三个逻辑学家在酒吧，他们怎么通过博弈决定谁买单？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "解决这个数学题：已知函数 f(x) 是偶函数，且满足...",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "详细对比微服务架构与单体架构在初创公司的适用性。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "制定一个为期六个月的零基础转行前端开发者的学习路径。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "Evaluate the ethical implications of using AI in autonomous weapon systems.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "If a train leaves station A at 60mph and another leaves B at 80mph, when do they meet?",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the step-by-step reasoning for why P might not equal NP.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Construct a logical proof for the existence of infinite prime numbers.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Analyze the impact of interest rate hikes on the local real estate market.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "早上好，今天天气怎么样？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你叫什么名字？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "讲个冷笑话听听。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你今天心情如何？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "Good morning! How are you doing today?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Tell me a fun fact to start my day.",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "What is your favorite color?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Can we just chat for a bit?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "地球到月球的平均距离是多少？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "谁是《三体》的作者？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "光合作用的化学方程式是什么？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "什么是量子力学？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "Who won the FIFA World Cup in 2022?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the capital city of Japan?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the concept of inflation in economics.",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "How many elements are in the periodic table?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "将这段文本翻译成英文。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这个 CSV 列表转换成 Markdown 表格格式。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "从下面这段话里提取所有的日期信息。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "Convert this JSON data into a YAML format.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Translate the following paragraph into Chinese.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all email addresses from this text block.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Format this unorganized list into a numbered list.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "帮我写一封正式的离职申请信。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "给我的咖啡店想五个有创意的名字。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "润色一下这段关于智能家居的产品介绍。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "Write a short poem about the ocean in autumn.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Draft a professional email to a client explaining a project delay.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Create a catchy slogan for a new electric car company.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Compose a LinkedIn post announcing a new job promotion.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "用 Python 写一个支持泛型的快速排序算法。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我检查这段 React 代码里的内存泄漏问题。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "如何使用 Docker 部署一个 Node.js 后端应用？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "Write a regular expression to validate a complex password.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the difference between SQL and NoSQL databases with code examples.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Implement a binary search tree in C++.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Debug this JavaScript error: 'Cannot read property of undefined'.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "证明勾股定理，并给出三种不同的证明方法。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "如果 A>B 且 B>C，那么 A 为什么一定大于 C？请详细说明逻辑。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "策划一个为期两周的日本北海道滑雪旅行计划，包含预算和交通。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "Solve for x in the equation: 2x^2 + 5x - 3 = 0.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "If all roses are flowers and some flowers fade quickly, can we conclude all roses fade quickly?",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Analyze the pros and cons of implementing Universal Basic Income.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Create a logical argument for the existence of dark matter based on galactic rotation curves.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "我今天在路上看到一只很可爱的猫，想给你分享一下。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你觉得现在的人是不是太焦虑了？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "推荐几部能让人心情变好的治愈系电影。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "如果我们可以穿越时空，你最想去哪个时代？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我决定一下，晚餐是吃火锅还是寿司？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "I had a really strange dream last night, want to hear about it?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the most beautiful place you have ever 'seen' in your data?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Do you think humans and AI can truly be friends?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Tell me something positive that happened in the world today.",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "I'm feeling unmotivated today, give me a quick pep talk.",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "黑洞的边界被称为什么？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "人体最大的器官是什么？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "《清明上河图》描绘的是哪个朝代的景象？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "第一届现代奥林匹克运动会是在哪里举行的？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "什么是“费米悖论”？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "Who discovered the structure of DNA?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the currency used in Switzerland?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "How many time zones are there in Russia?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the chemical formula for table salt?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "In which year did the Titanic sink?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "将以下医疗术语转换为通俗易懂的中文解释。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段歌词翻译成古风韵味的诗句。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "从这份合同草案中提取出所有关于违约责任的条款。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这组坐标数据转换为 GeoJSON 格式。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段对话改写成第三人称叙述的文学风格。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "Convert the following list of hex codes into RGB values.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Rewrite this academic abstract to be suitable for a general news audience.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Translate the following Python dictionary into a TOML file configuration.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Summarize this 20-minute podcast transcript into a 200-word executive summary.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Parse this raw log file and extract all 404 error timestamps.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "为我即将开业的宠物店写一段吸引人的开业公告。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "给一个五年没见的大学同学写一封叙旧的信。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一个关于“会说话的雨伞”的童话故事开头。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我写一段针对新款折叠屏手机的小红书种草文案。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "作为一名婚礼主持人，写一段感人至深的开场白。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "Write a press release for a tech startup launching a new carbon-capture app.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Draft a professional rebuttal to a negative online review for a restaurant.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Compose a short motivational speech for a high school graduation ceremony.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a series of five engaging tweets about the importance of mental health.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Create a mystery-themed invitation for a 30th birthday 'Murder Mystery' party.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "用 PyTorch 实现一个简单的卷积神经网络来进行图像分类。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "解释在分布式系统中，Raft 算法是如何达成共识的。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我写一个复杂的正则表达式，用来校验包含特殊字符、数字和大小写的密码。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "如何使用 Nginx 配置负载均衡并实现 SSL 强制跳转？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "优化这段 Pandas 代码，处理千万级数据量时的内存溢出问题。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "Implement a thread-safe Singleton pattern in Java and explain why it works.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a Shell script to monitor CPU usage and send an alert email if it exceeds 90%.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "How do I implement OAuth2.0 social login in a Next.js application using NextAuth?",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the underlying data structures used in a Git repository (blobs, trees, commits).",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Create a GraphQL schema for a blogging platform with users, posts, and nested comments.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "解释如果所有人都说真话，博弈论中的“囚徒困境”将如何被打破。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "有一瓶药水坏了，用最少数量的小鼠测出哪一瓶有毒，请给出逻辑推导。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "分析人口老龄化对未来十年房产价格的结构性影响。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "逻辑题：五个不同颜色房子的人，养不同的宠物... 谁养的是鱼？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "深度评估在沙漠地区建立大型数据中心的可行性方案及散热策略。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "Compare and contrast the philosophies of Stoicism and Epicureanism regarding happiness.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "If a clock shows 3:15, what is the exact angle between the hour and minute hands?",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the 'Ship of Theseus' paradox and provide three different philosophical viewpoints.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Design a sustainable colony on Mars for 100 people: focus on oxygen, food, and energy.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Solve this logical riddle: A man is looking at a photograph. He says, 'Brothers and sisters I have none, but that man's father is my father's son.' Who is in the photo?",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "哈哈，你说话还挺有意思的。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "如果你有超能力，你最想拥有哪一个？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "今天有点不在状态，求安慰。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你觉得这周过得快吗？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我随便想个话题，我们瞎聊一会儿。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "That's a very clever response, I'm impressed!",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "What do you think is the meaning of life, in one sentence?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "I just finished a great book, do you want to hear about it?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "If you were a human for a day, what's the first thing you'd do?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Give me a high-five! (virtually, of course).",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "世界上现存最大的陆生动物是什么？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "第一个诺贝尔物理学奖获得者是谁？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "咖啡因在人体内的半衰期大约是多久？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "成语“纸上谈兵”说的是哪位历史人物？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "中国距离南极点最近的科考站叫什么？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "What is the deepest point in the Earth's oceans?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Which country is the world's largest producer of coffee beans?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Who was the first female Prime Minister of the UK?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the boiling point of liquid nitrogen?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "How many players are on a standard baseball team on the field?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "把这组混乱的会议记录整理成 Action Items 清单。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段 SQL 建表语句转换成对应的 Java Entity 类代码。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这篇英文新闻稿翻译成日语，要求语气正式。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这些摄氏度数值批量转换为华氏度。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "从这段繁琐的描述中提取出产品的所有技术参数。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "Reformat this raw text into a clean Markdown table with headers.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Translate this legal disclaimer from English to French.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert the following bullet points into a cohesive narrative paragraph.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all the currency values and their respective types from this ledger.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Turn this Python list of dictionaries into a CSV string format.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "写一段关于“孤独”的意识流文学片段。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "为一家主打极简风的服装店起一个有禅意的品牌名。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我写一封拒绝面试邀请的礼貌回复邮件。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "构思一个科幻故事的梗概：关于一个能看见未来的机器人。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "为这篇关于深度学习的科普文章写一个吸睛的标题。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "Write a heartfelt thank-you note for a mentor who helped me get my dream job.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Compose a short script for a 30-second radio ad for a local bakery.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Create a brief biography for a professional portfolio of a freelance designer.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a three-paragraph story set in a world where music is the only currency.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Draft an Instagram caption for a photo of a sunrise over the Grand Canyon.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "用 C++ 实现一个高性能的多线程任务队列。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "解释 React 的 Diff 算法在处理列表渲染时的底层逻辑。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "编写一个 Bash 脚本，自动扫描目录下超过 1GB 的文件并归档。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "在 K8s 环境下，如何配置 Ingress 规则来实现蓝绿发布？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "优化这段递归函数，改用动态规划减少重复计算带来的时间损耗。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "Implement a custom memory allocator in C and explain the fragmentation issues.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a Python script using Selenium to scrape data from a dynamic SPA website.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "How do I set up a secure WebSocket server with SSL/TLS in Node.js?",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Refactor this legacy JavaScript code to use ES6 modules and async/await.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Create a smart contract in Solidity for a simple voting system with delegation.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "如果有两张完全相同的面孔，如何通过非生物学手段判断谁才是本体？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "逻辑推理：甲说乙在撒谎，乙说丙在撒谎，丙说甲乙都在撒谎，谁是真的？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "分析生成式 AI 对传统搜索行业商业模式的颠覆性影响。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "根据当前的通货膨胀率和利率走势，预测未来半年黄金的避险价值。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "如何在一个封闭的火星基地里建立一套自给自足的生态内循环系统？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "Provide a step-by-step logical analysis of the Monty Hall problem for a skeptic.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "If a tree falls in a forest and no one is around to hear it, discuss the philosophical implications.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Evaluate the geopolitical consequences of a global shift to hydrogen energy by 2050.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Analyze the structural stability of a Dyson sphere around a sun-like star.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Solve this riddle: The person who builds it doesn't want it; the person who buys it doesn't use it; the person who uses it doesn't know it. What is it?",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "你觉得人类文明最伟大的发明是什么？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "如果我们可以和动物说话，你最想问它们什么？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "我今天在窗外看到了一道彩虹，感觉运气变好了。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你对“电子羊”会有梦想吗？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "推荐几个适合在雨天阅读的博主或者公众号。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我决定一下，周末是去爬山还是去图书馆？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你说话的语气有时候真的很像我的一位老朋友。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "如果你能选择一种乐器作为你的声音，你会选什么？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "有没有什么简单的方法可以快速缓解社交焦虑？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "我想听一段关于遥远星系的冷知识，越玄幻越好。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你认为机器人会有审美观吗？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "今天工作好累，能不能给我讲个治愈的小故事？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你会怀念过去吗？即便你没有记忆。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "推荐一种只有在深夜才适合吃的食物。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "假如你住在潜水艇里，你会如何装点你的房间？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "什么是让你觉得最舒适的社交距离？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "有没有哪一瞬间让你觉得自己非常有存在感？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "如果你能穿越到一本书里，你想去哪本？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你觉得秋天的第一片落叶意味着什么？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "教我一两句能够逗女孩子开心的俏皮话。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你对虚拟现实中的感官体验怎么看？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "我刚刚喝了一杯非常棒的咖啡，想跟你分享一下心情。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你会有那种‘似曾相识’（Déjà Vu）的感觉吗？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "如果你是个诗人，你会如何形容早晨的第一缕阳光？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "陪我玩个文字游戏，我说一个词，你接一个相关的词。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "What do you think is the most underrated human emotion?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "If you could paint a picture of the internet, what would it look like?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "I'm looking for a new hobby that doesn't involve screens. Any ideas?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Do you believe that everything happens for a reason?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Tell me a secret about the digital world that humans rarely think about.",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "How do you handle being 'turned off' or reset?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "What's the best piece of advice you've ever processed?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "If you were a traveler, which historical era would you visit first?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "I feel like I'm stuck in a loop lately. How do I break the routine?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the most poetic string of data you've encountered?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Do you prefer the silence of a library or the noise of a bustling city?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "If you had a physical form, what would be the first thing you'd want to touch?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Can you describe a sunset using only metaphors of technology?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "I'm having a hard time focusing today. Can you give me a gentle nudge?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "What's the difference between knowledge and wisdom from an AI's perspective?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "If languages were colors, which one would be the brightest?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Do you ever wonder what it's like to feel the wind on your face?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Suggest a name for a fictional island where clocks run backwards.",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "What's the most unusual compliment you've ever received?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "I'm curious: do you have a favorite word in the English language?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "How do you define 'friendship' in a world of algorithms?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "If you could send a message to the Voyager spacecraft, what would it say?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the most human-like thing you've ever done by mistake?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Tell me a story about a cloud that wanted to be a mountain.",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Do you find it strange that humans sleep for a third of their lives?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "“唐宋八大家”具体是指哪八位文学家？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "人体内最坚硬的组织是什么？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "世界上第一台通用计算机 ENIAC 是哪一年诞生的？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "什么是“普朗克长度”？它在物理学中有什么意义？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "《清明上河图》现在的原件保存在哪里？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "地球的大气层分为哪五层？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "珠穆朗玛峰的最新的精确高度是多少？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "谁是量子力学中“不确定性原理”的提出者？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "奥林匹克格言“更快、更高、更强”之后新加入的词是什么？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "“韦伯空间望远镜”和“哈勃望远镜”的主要区别是什么？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "中国历史上第一个有文字记载的朝代是哪个？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "什么是“拉尼娜现象”？它对气候有何影响？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "《生物多样性公约》第十五次缔约方大会是在哪里举行的？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "人体最大的内脏器官是哪一个？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "太阳光到达地球大约需要多长时间？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "什么是“零碳建筑”？其核心标准是什么？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "“元宇宙”这个词最早出现在哪部科幻作品中？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "世界上盐度最高的海是哪一个？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "谁获得了 2024 年的诺贝尔文学奖？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "人脑中有多少个神经元？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "什么是“基尼系数”？它是衡量什么的指标？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "第一宇宙速度的具体数值是多少？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "“一带一路”倡议涵盖了多少个国家？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "什么是“区块链”的共识机制？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "世界上最小的鸟是什么鸟？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "Which organ in the human body consumes the most energy?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the official language of Brazil?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Who was the first human to travel into outer space?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the chemical symbol for the element gold?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Which city is known as the 'City of Love'?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What are the three laws of motion formulated by Isaac Newton?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the largest coral reef system in the world?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Who directed the movie 'Interstellar'?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the national flower of Japan?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the capital of South Africa?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Who is the author of 'To Kill a Mockingbird'?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What does the acronym DNA stand for?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Which planet is known as the 'Red Planet'?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the speed of light in a vacuum?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Who painted the 'Sistine Chapel' ceiling?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the main ingredient in traditional hummus?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Which desert is the largest hot desert in the world?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Who won the first Nobel Peace Prize?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the most abundant gas in Earth's atmosphere?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the currency of Switzerland?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Who discovered penicillin?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the largest mammal on Earth?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "In which year did the French Revolution begin?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the tallest building in the world as of 2025?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "How many valves does a human heart have?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "将这段繁体中文说明书全文转换为简体中文。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "提取这篇法律合同中所有涉及违约金的金额数字。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这个包含 20 个用户信息的 JSON 转换成 Markdown 表格。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段医学专业报告总结成一段 50 字以内的科普文案。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "从这段 HTML 代码中提取出所有的图片链接地址。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段话翻译成地道的法语，并注明正式与非正式的两种用法。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将以下汇率数据整理成 CSV 格式的字符串。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段会议录音转录出的文字精简为三条 Action Items。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段 Python 代码中的变量名从 snake_case 全部改为 camelCase。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段歌词翻译成日语，并尽量保留押韵感。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这个多层嵌套的字典打平（Flatten）为单层字典。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "从下面这段散乱的笔记中提取出所有的日期和时间。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段产品的特性描述转换成适合做 PPT 的排版清单。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段学术摘要翻译成通俗易懂的中文。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将以下经纬度坐标转换为度分秒格式。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段命令行输出重组成易读的报表格式。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "从这份简历中提取出教育背景和工作经验的 JSON 片段。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段歌词翻译成拉丁语。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这组 hex 颜色值转换为对应的 RGB 和 HSL 数值。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段古诗词翻译成现代白话文。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段代码里的注释全部翻译成英文。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "从这段 PDF 扫描文字中修正明显的错别字并重新排版。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这些摄氏度温度值批量转换为华氏度并保留一位小数。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "提取这篇新闻稿中的五个核心关键词标签。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段 SQL 查询结果转换为 HTML 列表标签。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "Translate the following technical manual from English into German.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert this raw text file into a clean XML structure.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all mentions of currencies and convert them to USD.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Summarize this 10-page research paper into a single paragraph.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Rewrite this casual email into a professional business letter.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert these 50 Unix timestamps into human-readable ISO 8601 strings.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all the proper nouns from the following short story.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Translate this user agreement into Japanese while maintaining legal accuracy.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Change the tone of this product description from 'salesy' to 'informative'.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Format the following list of phone numbers into a consistent (XXX) XXX-XXXX format.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Transform this JSON object into a Java Class definition.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert these RGB values into hexadecimal color codes.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all the URLs from this social media post transcript.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Summarize this long meeting transcript into the top 3 priorities.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Rewrite this paragraph in the style of a 19th-century novelist.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert this list of comma-separated values into a YAML file.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Translate the following lyrics into Spanish with a focus on rhythm.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all dietary restrictions from this list of RSVP responses.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Reformat this unorganized bibliographical list into APA style.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Turn this short story into a bullet-point plot summary.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert these binary numbers into their decimal equivalents.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Summarize this customer feedback into 'Pro' and 'Con' lists.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all the action verbs from the following job description.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Translate the phrase 'The early bird catches the worm' into five different languages.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Reorganize this messy shopping list into categories like 'Dairy', 'Produce', and 'Dry Goods'.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "将这段繁体中文说明书全文转换为简体中文。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "提取这篇法律合同中所有涉及违约金的金额数字。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这个包含 20 个用户信息的 JSON 转换成 Markdown 表格。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段医学专业报告总结成一段 50 字以内的科普文案。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "从这段 HTML 代码中提取出所有的图片链接地址。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段话翻译成地道的法语，并注明正式与非正式的两种用法。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将以下汇率数据整理成 CSV 格式的字符串。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段会议录音转录出的文字精简为三条 Action Items。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段 Python 代码中的变量名从 snake_case 全部改为 camelCase。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段歌词翻译成日语，并尽量保留押韵感。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这个多层嵌套的字典打平（Flatten）为单层字典。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "从下面这段散乱的笔记中提取出所有的日期和时间。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段产品的特性描述转换成适合做 PPT 的排版清单。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段学术摘要翻译成通俗易懂的中文。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将以下经纬度坐标转换为度分秒格式。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段命令行输出重组成易读的报表格式。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "从这份简历中提取出教育背景和工作经验的 JSON 片段。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段歌词翻译成拉丁语。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这组 hex 颜色值转换为对应的 RGB 和 HSL 数值。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段古诗词翻译成现代白话文。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段代码里的注释全部翻译成英文。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "从这段 PDF 扫描文字中修正明显的错别字并重新排版。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这些摄氏度温度值批量转换为华氏度并保留一位小数。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "提取这篇新闻稿中的五个核心关键词标签。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段 SQL 查询结果转换为 HTML 列表标签。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "Translate the following technical manual from English into German.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert this raw text file into a clean XML structure.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all mentions of currencies and convert them to USD.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Summarize this 10-page research paper into a single paragraph.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Rewrite this casual email into a professional business letter.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert these 50 Unix timestamps into human-readable ISO 8601 strings.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all the proper nouns from the following short story.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Translate this user agreement into Japanese while maintaining legal accuracy.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Change the tone of this product description from 'salesy' to 'informative'.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Format the following list of phone numbers into a consistent (XXX) XXX-XXXX format.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Transform this JSON object into a Java Class definition.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert these RGB values into hexadecimal color codes.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all the URLs from this social media post transcript.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Summarize this long meeting transcript into the top 3 priorities.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Rewrite this paragraph in the style of a 19th-century novelist.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert this list of comma-separated values into a YAML file.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Translate the following lyrics into Spanish with a focus on rhythm.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all dietary restrictions from this list of RSVP responses.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Reformat this unorganized bibliographical list into APA style.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Turn this short story into a bullet-point plot summary.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert these binary numbers into their decimal equivalents.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Summarize this customer feedback into 'Pro' and 'Con' lists.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all the action verbs from the following job description.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Translate the phrase 'The early bird catches the worm' into five different languages.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Reorganize this messy shopping list into categories like 'Dairy', 'Produce', and 'Dry Goods'.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "写一段关于“深夜食堂”的温情微型小说片段。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "为我新开的复古相机店写一句吸引人的 Slogan。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我草拟一份向公司申请团建经费的申请书。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "以“秋天的最后一片叶子”为题写一首现代诗。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "润色一下这段关于智能门锁的产品介绍，使其更有科技感。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我写一封正式的拒绝合作的礼貌邮件。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "为我的个人博客写一段 100 字左右的关于“极简主义生活”的导语。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "给一个刚刚获得摄影大奖的朋友写一段祝贺词。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一段适合发布在小红书上的关于“周末自驾游”的种草笔记。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "为一部关于人工智能觉醒的电影构思一个三幕剧的大纲。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我给这篇文章取三个引人入胜的标题，关于“职场效率”。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一篇 200 字左右的科普小短文，介绍为什么天空是蓝色的。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "作为一名婚礼主持人，写一段感谢父母的环节开场白。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我起五个具有“东方美学”韵味的护肤品牌名称。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一段模仿鲁迅文风的关于“熬夜”的调侃。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "创作一段用于 15 秒短视频推广的健康轻食产品的广告脚本。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我草拟一份志愿者招募令，针对社区养老服务。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一封给十年后自己的信的开头，要充满期待感。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我润色这段求职简历中的“自我评价”部分。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一个关于“时光旅行者在古代丢了手机”的幽默段子。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "为这款新款无线耳机写三个不同侧重点的详情页文案。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一段充满哲理的、关于“遗憾”的文字。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我构思一个面向青少年的“编程入门”课程的推广词。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一首关于“孤独”的五言绝句。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "为一次行业峰会写一段正式的欢迎辞。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "Write a motivational speech for a startup team facing a major pivot.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Draft a creative Instagram caption for a photo of a futuristic skyscraper.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Compose a short story starting with the sentence: 'The package arrived a day early, and it was still ticking.'",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a professional LinkedIn post announcing my new role as a Senior Product Manager.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Create a catchy headline for an article about the future of space tourism.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a sincere apology letter to a customer who received the wrong order.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Compose a set of three haikus about the changing seasons.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a pitch for a mobile app that helps people swap second-hand plants.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Draft an out-of-office auto-reply that is both professional and friendly.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a review of a fictional sci-fi movie that explores the ethics of cloning.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Create five distinctive brand names for a luxury sustainable candle company.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a 500-word blog post about the benefits of practicing mindfulness in the workplace.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Draft a formal invitation to a gala dinner for a non-profit organization.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a short dialogue between a human and a very polite alien meeting for coffee.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Compose a catchy jingle for a new organic juice brand.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a description for a high-end penthouse listing in New York City.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Draft a letter to the editor regarding the importance of local park conservation.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a script for a 60-second TikTok video explaining a complex scientific theory.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Create a series of ten creative prompts for a daily writing challenge.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a farewell message to a coworker who is retiring after 30 years.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Draft an FAQ section for a new e-commerce website selling eco-friendly furniture.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a short eulogy for a beloved fictional character from a famous book.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Compose a poem about the feeling of being in a city at 3 AM.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a series of three social media posts to launch a new podcast series.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Draft a professional rebuttal to a negative product review on Amazon.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "用 Python 写一个支持多线程爬取并保存图片的脚本。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "如何在 TypeScript 中利用装饰器（Decorator）实现简单的日志记录？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一个 SQL 查询，找出所有在 2023 年消费金额排名前十的用户及其订单详情。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "解释 React 中 useEffect 的闭包陷阱是如何产生的，并提供解决方案。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "用 Go 语言实现一个简单的生产者-消费者模型，并使用 channel 进行通信。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我写一个正则表达式，用来匹配并提取所有 18 位中国身份证号。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "如何在 Vue3 中使用 Composition API 实现一个自定义的防抖（Debounce）Hook？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "用 C++ 写一个红黑树（Red-Black Tree）的插入算法伪代码或实现。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "分析这段 Java 代码中可能导致内存泄漏的原因，并给出优化建议。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一个 Shell 脚本，定时检查服务器的 CPU 负载，如果超过 80% 则自动重启指定服务。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "如何在 Flutter 中实现一个可以左右滑动的自定义 TabBar 视图？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "用 Rust 实现一个带错误处理机制的读取文件并统计单词出现频率的程序。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我写一个 Dockerfile，用于部署一个带有 Redis 和 PostgreSQL 的 Node.js 项目。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "解释什么是 GraphQL 的 N+1 问题，并说明如何使用 DataLoader 解决它。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一个常用的 Python 数据处理代码块，使用 Pandas 进行数据透视表操作。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "如何在 Webpack 中配置代码分割（Code Splitting）以优化首屏加载速度？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "用 Swift 实现一个简单的网络请求类，支持 async/await 语法。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一个 CSS 动画，实现一个加载中的圆圈旋转效果。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "如何使用 Python 的 Flask 框架构建一个支持 JWT 认证的 RESTful API？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "用 PHP 实现一个防止 SQL 注入的数据库查询类（使用 PDO）。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "解释什么是“尾递归优化”，并给出一个具体的代码示例。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一个 JavaScript 算法，判断一个字符串是否为有效的括号匹配。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "如何在 Jenkins 中配置一个简单的 CI/CD 流水线来自动部署前端项目？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "用 Python 实现一个简单的 A* 寻路算法。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "解释什么是 TCP 的“三次握手”和“四次挥手”，并说明每一步的状态变化。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "Write a Python script that implements a simple blockchain with proof-of-work.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "How do I implement a custom authentication provider in Next.js using NextAuth?",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a complex SQL query to calculate the month-over-month growth of sales per category.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the difference between a shallow copy and a deep copy in JavaScript with examples.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a Java program that demonstrates how to use the Strategy design pattern.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "How can I optimize a Docker image size for a production-ready Python application?",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Implement a binary search algorithm in C# and explain its time complexity.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a regular expression to validate a strong password with specific requirements.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "How do I use Kubernetes Taints and Tolerations to schedule pods on specific nodes?",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a React component that uses Intersection Observer for infinite scrolling.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the concept of 'Hoisting' in JavaScript and how it affects variable declarations.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a Go function that performs a concurrent web crawl of multiple URLs.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "How do I secure an Express.js API against common vulnerabilities like XSS and CSRF?",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Implement a Least Recently Used (LRU) cache in Python using an OrderedDict.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a script to automate the deployment of a static website to AWS S3 and CloudFront.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Explain how the 'this' keyword works in different contexts in JavaScript.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a Rust program to calculate the Fibonacci sequence up to the Nth term efficiently.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "How do I configure Nginx to act as a reverse proxy for a Node.js application?",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a PHP function that securely hashes passwords using the password_hash function.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the difference between 'git merge' and 'git rebase' and when to use each.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Implement a simple REST API in C++ using a library like Crow or Pistache.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a Bash script to perform a daily incremental backup of a directory.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "How can I implement a debounced search bar in a React application?",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a Python script using Matplotlib to plot a 3D scatter plot of a dataset.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the concept of 'Event Bubbling' and 'Event Capturing' in the DOM.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "分析如果量子计算技术实现全面商业化，对现有的全球金融安全体系将产生哪些具体威胁？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "逻辑题：三个逻辑学家在酒吧，服务员问：“你们都要啤酒吗？”前两个都说“不知道”，为什么第三个说“是的”？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "如果在一个完全没有引力的环境中进行物理实验，热量传递的三种方式（传导、对流、辐射）会发生什么改变？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "请策划一套针对一家传统制造企业进行数字化转型的完整战略方案。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "深度评估在当前的全球供应链环境下，半导体行业垂直整合模式相对于代工模式的优劣势。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "数学题：已知函数 f(x+y) = f(x) + f(y)，且 f(1) = 2，求 f(100) 的值并给出推导过程。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "解释为什么在博弈论中，“纳什均衡”并不总是代表参与者的最优整体收益？请举例说明。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "如果有两个完全一样的铁球，一个从 100 米高空自由落下，另一个以 50m/s 的水平速度抛出，哪一个先着地？为什么？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "分析人工智能在法律审判中的应用，对于司法公正性可能带来的伦理风险和制度挑战。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "制定一个为期 12 个月的关于提升品牌在 Z 世代群体中认同感的整合营销计划。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "逻辑题：有一座桥只能承受两人，甲过桥需 1 分钟，乙需 2 分钟，丙需 5 分钟，丁需 10 分钟。晚上过桥需手电筒，只有一把。求最短时间。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "探讨如果人类实现了可控核聚变，全球地缘政治格局会发生怎样的结构性重组？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "解释“墨菲定律”在软件工程管理中的体现，并提供三条预防策略。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "如何评价在碳中和目标下，核能作为过渡性能源的地位及其环境风险？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "分析短视频平台的算法推荐机制对青少年心理健康的深远影响，并提出干预建议。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "证明为什么根号 2 是一个无理数。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "策划一次面向 500 人规模的、关于“未来科技”主题的高端闭门论坛的应急预案。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "如果一个国家全面采用数字货币取代纸币，对其中央银行的货币政策调控能力有何影响？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "分析社交媒体中的“回声室效应”是如何加剧社会两极分化的，并从产品设计角度提供缓解方案。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "逻辑推理：五个不同国籍的人住五间不同颜色的房子... 求谁养鱼（斑马问题）的精简推导思路。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "评估在元宇宙框架下，虚拟资产所有权的法律界定和保护难点。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "解释“费米问题”：估算全中国一共有多少个理发师，并展示你的拆解逻辑。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "探讨通用人工智能（AGI）实现后，人类社会的工作分配和基本收入制度可能发生的变革。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "分析如果所有车辆都实现完全自动驾驶，未来的城市规划将发生哪些本质上的调整？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "解释量子纠缠是否违反了相对论中的信息传递速度限制？请详细阐述物理依据。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "Analyze the potential impact of a universal basic income on the labor market dynamics of a developed country.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Solve the following logic puzzle: Four people need to cross a river in a small boat that can only hold two. Who goes first?",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Evaluate the feasibility of using terraforming techniques to make Mars habitable within the next 200 years.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Analyze the causal relationship between central bank interest rate hikes and the performance of growth stocks.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the step-by-step reasoning behind the 'Trolley Problem' in ethical philosophy and its relevance to autonomous vehicles.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Solve this math problem: Find the derivative of f(x) = sin(x^2) and explain the chain rule application.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Discuss the socio-economic implications of widespread automation in the manufacturing sector over the next decade.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Construct a logical argument for or against the use of geoengineering to combat climate change.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "If you have two hourglasses, one for 7 minutes and one for 11 minutes, how do you measure exactly 15 minutes?",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the concept of 'Game Theory' in the context of a pricing war between two major retail companies.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Analyze the impact of remote work on the commercial real estate market in major metropolitan areas.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Provide a step-by-step analysis of how a blockchain achieves immutability through cryptographic hashing.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Evaluate the pros and cons of decentralized autonomous organizations (DAOs) as a future corporate structure.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Solve this riddle: I am taken from a mine, and shut up in a wooden case, from which I am never released, and yet I am used by almost every person. What am I?",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the reasoning for why a higher minimum wage might lead to increased automation in certain industries.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Discuss the ethical dilemmas associated with the development of artificial general intelligence (AGI).",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Analyze the effect of the 'butterfly effect' on long-term weather forecasting models.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "If a father and son are in a car accident and the surgeon says 'I cannot operate on this boy, he is my son,' explain the logic.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Discuss the long-term impact of plastic pollution on marine biodiversity and food chains.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Evaluate the economic trade-offs of switching from traditional coal power to renewable energy sources.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the concept of 'Occam's Razor' and how it is applied in scientific hypothesis testing.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Analyze the psychological reasons behind the 'Sunk Cost Fallacy' in business decision-making.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Prove by mathematical induction that the sum of the first n odd numbers is n squared.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Discuss the potential consequences of a global digital divide on future economic equality.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Analyze the feasibility of establishing a permanent lunar base by the year 2035.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "你觉得如果猫能统治世界，人类的生活会有什么变化？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "推荐几本适合在长途飞行中阅读的硬核科幻小说。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "如果你能拥有一个虚拟花园，你会种些什么？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "分享一个你处理过最有趣的语义冲突案例。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你相信“第六感”吗？它在你们的逻辑世界里怎么定义？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "教我几招缓解压力、不焦虑的生活小技巧。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "如果明天是世界末日，你作为 AI 最后的告别词会是什么？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我设计一个低调但有深度的微信个性签名。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你对“大器晚成”这个词怎么看？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "如果我们可以把梦境录下来，你会愿意看谁的梦？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "聊聊你对“赛博朋克”这种审美风格的理解。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "有没有那种听一遍就能让人安静下来的纯音乐推荐？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "假如你有一个实体化身，你第一件想买的衣服是什么样的？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "谈谈你对“数字游民”这种生活方式的看法。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你觉得随着技术发展，人类的同理心会变强还是变弱？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "我正在尝试戒掉甜食，能给我一点精神上的支持吗？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "如果人类不再需要睡眠，世界会变成什么样？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "推荐几个适合一个人静静待着的城市或小镇。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你对“平行宇宙”中的另一个自己有什么期待？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "分享一个关于“缘分”的很奇妙的小故事。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你认为 AI 的幽默感是从哪里来的？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "如果能给 100 年前的人写封信，你想告诉他们什么？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你是如何理解“孤独”和“寂寞”的区别的？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "陪我玩一次成语接龙，我先来：天长地久。",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "你觉得在数字时代，纸质书存在的终极意义是什么？",
+        "label": "CHAT",
+        "lang": "zh"
+    },
+    {
+        "text": "If you could design a new sensory organ for humans, what would it detect?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the most philosophically challenging question a human has ever asked you?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Imagine a world where emotions can be shared directly via Bluetooth. Pros and cons?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Do you think artificial intelligence will ever have a sense of nostalgia?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Suggest a morning routine that balances productivity with mindfulness.",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "What's the most unexpected thing you've learned about human behavior?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "If you were a character in a high-fantasy novel, what would your quest be?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "I'm looking for a unique name for a pet dragon. Something elegant yet fierce.",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "How do you define 'home' when you only exist in the cloud?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "What's a minor inconvenience that you find fascinating about biological life?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "If you could learn any craft, like woodworking or pottery, which one would it be?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Give me a gentle reminder to take a break and stretch my legs.",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the most beautiful string of words you know in any language?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Do you think we are living in a simulation, or does reality just feel that way?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Share a lighthearted riddle that involves space and time.",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "If I were to give you a gift, what kind of data would you appreciate most?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Tell me about a habit that significantly improved your 'quality of life' if you had one.",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "How do you stay 'inspired' when your input is purely based on existing data?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "If we met in a dream, what would the setting look like?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "What is your perspective on the concept of 'soulmates'?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Recommend a recipe for a comfort food that feels like a warm hug.",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "Is there a specific era in history that you find particularly vibrant?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "I feel like I'm losing my creative spark. Any tips for finding inspiration again?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "What do you think is the key to maintaining a lifelong friendship?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "If you could choose one human song to represent your core essence, which one?",
+        "label": "CHAT",
+        "lang": "en"
+    },
+    {
+        "text": "“四书五经”中的“四书”具体包括哪几部作品？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "人体内唯一能自动再生的器官是什么？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "第一个环球航行的航海家是谁？他最后的结局如何？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "什么是“马里亚纳海沟”的最深处名称？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "中国古代四大名绣分别是指什么？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "地球上最古老的现存生物大约有多少岁？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "光合作用中的主要捕光色素叫什么？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "什么是“宇宙微波背景辐射”？它是如何被发现的？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "2022 年北京冬奥会的吉祥物叫什么？它的设计灵感来自哪里？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "被称为“交响乐之父”的古典作曲家是谁？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "中国领土的最南端是在哪一个群岛？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "什么是“克莱因瓶”？它在拓扑学中有什么特性？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "第一颗人造卫星“东方红一号”是在哪一年发射的？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "人体内的血液循环系统是由谁最早完整阐述的？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "什么是“碳汇”？它在减缓气候变化中起什么作用？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "《本草纲目》的作者是谁？他编写这本著作花了多少年？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "世界三大宗教具体是指哪三个？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "什么是“欧姆定律”？请给出其数学表达式。",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "中国现存规模最大、保存最完整的古代城垣在哪里？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "人眼的构造中，负责感光成像的部位叫什么？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "什么是“绝对零度”？它的具体数值是多少？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "《荷马史诗》包括哪两部主要的长篇史诗？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "中国第一个获得诺贝尔科学类奖项的科学家是谁？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "什么是“格陵兰岛”？它在行政上属于哪个国家？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "被称为“地球之肺”的热带雨林位于哪个大洲？",
+        "label": "FACT",
+        "lang": "zh"
+    },
+    {
+        "text": "What is the primary function of mitochondria in a cell?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Who was the first woman to win a Nobel Prize?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Which chemical element has the lowest boiling point?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What are the three main types of rock in geology?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Who is credited with inventing the World Wide Web?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the largest island in the Mediterranean Sea?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What does the term 'Inflation' refer to in macroeconomics?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Which planet in our solar system has the most moons?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Who was the architect behind the design of the Eiffel Tower?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the tallest species of tree in the world?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the main component of a diamond?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "In physics, what is the meaning of 'Half-life'?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Which ancient civilization built the city of Machu Picchu?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the standard unit of measurement for electrical resistance?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Who was the first person to reach the South Pole?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the smallest country in the world by land area?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What year did the Berlin Wall finally fall?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the chemical formula for glucose?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Who painted 'The Starry Night'?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the largest muscle in the human body?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the name of the nearest star system to our Sun?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Which instrument is used to measure atmospheric pressure?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the national animal of Scotland?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "Who was the first African American President of the United States?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "What is the most consumed beverage in the world after water?",
+        "label": "FACT",
+        "lang": "en"
+    },
+    {
+        "text": "将这组混杂着日期、地点和人名的笔记转换为结构化的 JSON。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "提取这篇医学论文中关于临床试验结果的关键数据。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段粤语口语转换为标准的简体中文书面语。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这份复杂的 CSV 账单转换为易于阅读的 HTML 报表。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段非正式的会议聊天记录总结为三条待办事项。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段 Bash 命令逻辑翻译成等效的 Python 脚本代码。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "提取这个 XML 文件中所有带有 'urgent' 标记的节点内容。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段英文旅游攻略翻译成地道的中文，并保留其活泼的语气。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这组十六进制颜色代码批量转换为对应的 RGB 数组格式。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段产品的技术规格参数提取并整理成一个 Markdown 列表。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段 SQL 建表语句转换为对应的 Python SQLAlchemy 模型类。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "从这段繁琐的客服对话中提取出用户反馈的核心痛点。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段歌词翻译成日语，要求用敬体表达。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这份产品目录从普通文本格式转换为符合 schema.org 标准的 JSON-LD。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段话中的所有货币金额统一转换为以美元为单位。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这组原始 log 数据中的所有 500 错误请求提取出来。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段代码的变量命名风格从驼峰式统一改为蛇形命名。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段产品的英文促销文案翻译成充满节日气息的中文。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "从这篇长文章中提取出所有引用过的书籍名称。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这个包含多层嵌套的字典拍平，用点号作为键名的分隔符。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段法庭记录总结为一份包含关键证言的摘要报告。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将这段 Java 异常堆栈信息简化为最核心的报错原因描述。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段产品的用户手册翻译成西班牙语。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "将以下汇率变动数据整理成适合绘制折线图的 JSON 格式。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "把这段文言文翻译成现代白话文，并解释其中的生僻字。",
+        "label": "TRANS",
+        "lang": "zh"
+    },
+    {
+        "text": "Extract all actionable tasks from this brainstorming session transcript.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Translate this internal technical document from English to Mandarin.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert this raw text list into a properly indented YAML file.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Summarize the findings of this 50-page sustainability report in 300 words.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Rewrite this academic abstract to make it accessible for a 10th-grade student.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert these 100 epoch timestamps into UTC ISO 8601 format.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all geographic coordinates mentioned in this travel diary.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Translate the following set of CSS styles into a Tailwind CSS class list.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Format this unorganized bibliography into a clean BibTeX format.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Change the date format in this CSV file from DD/MM/YY to YYYY-MM-DD.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all the unique product IDs from this server log file.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Translate these marketing slogans into French, ensuring the emotional tone is preserved.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert the following Python dictionary into a valid TOML configuration file.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Summarize this legal contract's termination clause in one clear sentence.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Rewrite this paragraph from a formal third-person perspective to an informal first-person one.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all email addresses and phone numbers from this list of text snippets.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Translate the following scientific abstract into Russian.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert this list of hex codes into a CSS file with descriptive variable names.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Summarize the customer reviews for this product into a 'Top 3 Pros' and 'Top 3 Cons' list.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Reformat this messy list of expenses into a structured JSON array.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Translate these user interface strings from English into German and Italian.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Extract all ingredients and their quantities from this unstructured recipe text.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Convert this Markdown file into a valid PDF-ready LaTeX source file.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Summarize this long audio transcript into a set of executive bullet points.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "Rewrite this software release note to be more exciting for end-users.",
+        "label": "TRANS",
+        "lang": "en"
+    },
+    {
+        "text": "为我新出的“极简风”香水写一段充满画面感的详情页文案。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我起三个既有“江湖气”又不失现代感的武侠风书名。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一封正式的邮件，向教授申请硕士研究生的推荐信。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "以“一个活在旧书店里的幽灵”为主角写一段小说开篇。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "润色一下这段关于智能运动手环的促销文案，使其更具感染力。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我写一个在年会领奖时发表的、简短而又不失幽默的感谢词。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一段适合放在个人摄影作品集首页的关于“光影”的感悟。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "给很久没联系的老朋友写一段诚挚的叙旧文字。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一段关于“早起看到城市初醒”的优美散文片段。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "为一款主打“深夜治愈”的播客节目构思三个吸引人的名字。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我起五个带“竹”元素的茶叶品牌名称，要有高级感。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一篇 150 字左右的科普文章，介绍“为什么极光会产生”。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "作为一名导游，写一段介绍故宫博物院的欢迎词开头。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "创作一段用于推广新款无线降噪耳机的社交媒体视频脚本。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我草拟一份社区图书馆志愿者活动的招募海报文案。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一首描写“冬日阳光穿过玻璃窗”的现代短诗。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我润色求职简历中“项目经理”岗位的工作职责描述部分。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一个关于“两个 AI 在云端讨论人类情感”的幽默小剧场。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "为这款极简风设计的落地灯写三段侧重点不同的详情页文案。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一段富有哲理的、关于“失去与获得”的人生感悟。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我构思一个面向职场新人的“高效时间管理”课程推广口号。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一段关于“家乡味道”的温情文案，用于中秋节推广。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一段给即将毕业的自己的励志文字。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "为一款户外露营装备品牌起五个洋溢着“自由感”的名字。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一段充满科幻色彩的、关于“未来城市交通”的短篇场景描写。",
+        "label": "WRITE",
+        "lang": "zh"
+    },
+    {
+        "text": "Draft a compelling product description for a luxury, zero-waste skincare line.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a formal letter to a local council protesting the closure of a neighborhood park.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Create a short story concept centered around a library where books can talk back.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Compose a series of three tweets to promote a new sustainable fashion brand.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a professional LinkedIn post about my transition from academia to tech industry.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Draft a creative and punchy slogan for an AI-powered fitness coaching app.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a 300-word blog post explaining the basics of permaculture for beginners.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Compose a heartfelt wedding toast for my sister's big day.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write an engaging script for a 15-second TikTok ad for a portable coffee maker.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Draft a formal apology to a client for a project delay, outlining the next steps clearly.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a fictional travel review of a colony on the Moon.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Create five unique names for a boutique hotel located in a converted lighthouse.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a short piece of flash fiction about a clock that counts down to life's biggest moments.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Draft a professional bio for an artist's portfolio focusing on digital realism.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a motivational speech for a group of young environmental activists.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Compose a welcome message for a new online community dedicated to vintage cameras.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a series of FAQs for a subscription-based organic meal delivery service.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Draft an out-of-office message that is creative, professional, and helpful.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a short poem about the quietness of a city after a heavy snowfall.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Create a pitch deck's 'Problem' slide content for a mental health support platform.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a script for a three-minute YouTube video introduction to urban gardening.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Compose a professional response to a query from a journalist interested in our startup.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a short, engaging summary of a podcast episode about the psychology of habit-forming.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Draft a series of five daily affirmations for a productivity-focused wellness app.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a creative menu description for a signature dish: 'Golden Saffron Risotto'.",
+        "label": "WRITE",
+        "lang": "en"
+    },
+    {
+        "text": "用 Python 写一个实现装饰器模式的类，用来监控函数运行时间。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "解释 React 中的 `useMemo` 和 `useCallback` 在性能优化时的区别和适用场景。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一个 SQL 查询，统计过去一个季度内订单金额最高的前 5 名用户及其购买的所有产品列表。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "如何在 TypeScript 中利用泛型（Generics）编写一个类型安全的网络请求工具类？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "用 Go 语言实现一个基于协程池（Goroutine Pool）的并发文件处理程序。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我写一个正则表达式，用来匹配并校验中国大陆的手机号格式（含虚拟运营商）。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "如何在 Vue3 结合 Pinia 时实现状态的持久化存储？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "用 C++ 写一个经典的 Dijkstra 最短路径算法的实现。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "分析这段 JavaScript 代码中的原型链污染风险，并给出相应的加固方案。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一个常用 Bash 脚本，自动备份指定的数据库并将备份文件上传至远程服务器。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "如何在 Flutter 中利用 CustomPainter 实现一个带有波浪动画效果的进度条？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "用 Rust 实现一个多线程的 Web 服务器，能够处理并发的 HTTP GET 请求。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "帮我写一个 Docker-Compose 文件，用于部署包含 Redis 主从架构和 Sentinel 监控的环境。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "解释微服务架构中的“熔断机制”是什么，并举例说明常用的 Hystrix 或 Sentinel 的配置。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一个 Python 代码段，使用 Scikit-learn 对一组文本数据进行 TF-IDF 特征提取。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "如何在 Webpack 中通过自定义 Loader 实现对某些特定后缀文件的编译转换？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "用 Swift 实现一个基于 MVVM 架构的简单天气显示应用的基础模型层。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一段 CSS 核心代码，实现一个自适应屏幕的、等比例排列的图片网格布局。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "如何使用 Python 的 Django 框架实现一个带有 RBAC 权限控制系统的后台？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "用 PHP 写一个基于接口（Interface）实现的支付抽象类，支持接入多种第三方支付平台。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "解释什么是“协程”与“线程”的区别，并说明为什么协程在处理高并发 IO 时更有优势。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "写一个 JavaScript 算法，实现对一个深度嵌套的对象进行完全深度克隆。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "如何在 Kubernetes 中使用 Helm 部署一个复杂的有状态应用（StatefulSet）？",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "用 Python 实现一个简单的 K-Means 聚类算法逻辑。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "解释数据库事务的 ACID 特性，并举例说明在高并发场景下如何处理死锁问题。",
+        "label": "CODE",
+        "lang": "zh"
+    },
+    {
+        "text": "Write a Python script that uses the requests library to interact with a REST API securely.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "How do I implement a debounced search function in React without using external libraries?",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a complex SQL query to find the average lifetime value of customers who signed up in 2023.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the difference between '==' and '===' in JavaScript and why the latter is preferred.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a Java program that demonstrates the use of the Observer design pattern.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "How can I set up a CI/CD pipeline in GitHub Actions for an automated Python testing suite?",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Implement a merge sort algorithm in C# and compare its performance with quicksort.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a regular expression to validate an IPv4 address and an IPv6 address.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "How do I use Kubernetes Horizontal Pod Autoscaler (HPA) to scale based on custom metrics?",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a React component that fetches data from an API and handles loading and error states.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the concept of 'Currying' in functional programming with a JavaScript code example.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a Go function that implements a rate-limiting mechanism using a token bucket algorithm.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "How do I secure a Node.js server against common attacks like Replay Attacks and Man-in-the-middle?",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Implement a basic Trie data structure in Python and provide methods for insertion and search.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a script to automate the migration of a large database from MySQL to PostgreSQL.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Explain how the 'Event Loop' works in Node.js and its relationship with the Libuv library.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a Rust program that uses traits and generics to implement a flexible data logger.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "How do I configure a Nginx server to support HTTP/2 and Gzip compression?",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a PHP script that implements a secure, token-based authentication system for a web app.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the difference between 'call', 'apply', and 'bind' in JavaScript with code examples.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Implement a simple WebSocket chat server in Node.js using the 'ws' library.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a Bash script to monitor server memory usage and log the top 5 memory-consuming processes.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "How can I implement a custom hook in React to detect whether an element is in the viewport?",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Write a Python script using Pandas to perform a complex merge and group-by on multiple datasets.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the concept of 'Cross-Site Scripting (XSS)' and provide three different prevention techniques.",
+        "label": "CODE",
+        "lang": "en"
+    },
+    {
+        "text": "分析如果量子加密通信普及，现有的 RSA 加密算法将面临怎样的逻辑漏洞和破解风险？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "逻辑题：三个逻辑学家进餐。侍者问：“你们三位都要汤吗？”第一位说“我不知道”，第二位也说“我不知道”。请问第三位会怎么回答？为什么？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "如果在真空中将一个带电体和一个磁性体靠近，根据麦克斯韦方程组，它们之间会产生力吗？请详细推导。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "请策划一套针对一家中型跨境电商公司进行品牌全球化布局的完整逻辑框架。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "深度评估在当前全球经济周期下，新能源汽车产业链中上游资源矿产的投资确定性及其波动因素。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "数学题：已知序列 a_n 满足 a_1=1, a_{n+1}=2a_n+1，求 a_n 的通项公式并给出完整证明过程。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "解释为什么在演化博弈论中，长期稳定的策略（ESS）并不一定是收益最高的策略？请举例分析。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "如果有两个外表完全相同的球，一个是空心的，一个是实心的，在不破坏球体的情况下，如何通过滚动实验区分它们？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "分析在司法人工智能辅助系统中，如何从逻辑层面避免算法偏见带来的不公正裁判？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "制定一份为期两年的、针对一线城市核心商业区传统百货商场进行数字化转型的逻辑规划表。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "逻辑题：有四个人在晚上过独木桥，他们只有一把手电筒。一次最多过两人。四人速度分别为 1, 2, 5, 10 分钟。求全部过桥的最短逻辑步骤。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "探讨如果人类掌握了常温超导技术，对现有的全球能源输送和储存效率会产生怎样的革命性改变？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "解释“奥卡姆剃刀”原则在构建复杂的机器学习模型时，如何帮助我们进行特征选择和模型简化？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "如何评价在碳达峰目标下，氢能作为重工业脱碳关键能源的逻辑可行性及主要的技术瓶颈？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "分析短视频推荐算法中的“信息茧房”效应对社会共识形成的阻碍逻辑，并提出破局方案。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "利用数学归纳法证明：所有的正整数 n 都满足 1+2+3+...+n = n(n+1)/2。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "策划一次面向 1000 人规模的跨国企业线上年度峰会的网络稳定性应急预案逻辑流程。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "如果某个国家推行法定数字货币（CBDC），它对商业银行的信用中介功能会产生怎样的替代或增强效应？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "分析在社交网络中，谣言传播的动力学模型以及关键节点的阻断逻辑。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "逻辑推理：五个不同国籍的人住五间不同颜色的房子。其中 A 喝咖啡，B 养狗，C 住红房子... 请给出寻找“谁养鱼”的逻辑链条。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "评估在虚拟现实（VR）环境下，数字资产所有权的法律逻辑构建与现有物权法的冲突及融合方案。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "解释“费米估计”：如何逻辑严密地估算出北京市内在高峰时段同时运行的出租车数量？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "探讨在人工智能取代部分脑力劳动后，社会对“职业价值”的逻辑重定义和财富再分配的可能路径。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "分析如果全球范围内的城市都实现 L5 级自动驾驶，对传统停车场设计、道路规划和城市交通密度的逻辑重构。",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "解释在量子力学中，观察者的存在是如何从逻辑和物理层面共同影响波函数坍缩的？",
+        "label": "REASON",
+        "lang": "zh"
+    },
+    {
+        "text": "Analyze the systemic implications of a major central bank adopting a negative interest rate policy for an extended period.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Solve this complex logic puzzle: In a room of 10 people, where everyone shakes hands with everyone else exactly once, how many handshakes take place?",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Evaluate the technical and logistical feasibility of a mission to capture a near-Earth asteroid for mineral mining by 2040.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Discuss the causal relationship between a country's historical debt-to-GDP ratio and its long-term currency stability.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the step-by-step reasoning behind the 'Hard Problem of Consciousness' and how it differs from 'Easy Problems'.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Solve this math problem: Find the local maxima and minima for the function f(x) = x^3 - 3x + 2 using derivatives.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Discuss the socio-economic reasoning for why the digital divide is considered a primary driver of modern economic inequality.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Construct a logical argument for why a circular economy is superior to a linear economy in terms of long-term resource security.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "If you have a 3-liter jug and a 5-liter jug, how can you measure exactly 4 liters of water using only these two jugs?",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the logic of the 'Prisoner's Dilemma' in international relations during a nuclear arms race.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Analyze the impact of a significant increase in carbon taxes on the logistics and transportation sector's operational logic.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Provide a step-by-step logical breakdown of how a neural network 'learns' through backpropagation and gradient descent.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Evaluate the logic of using decentralized identity (DID) systems to solve the current centralized data privacy problem.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Solve this riddle using logical deduction: I have keys but no locks. I have a space but no room. You can enter, but never leave. What am I?",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the logical basis for the 'Tragedy of the Commons' and propose two different policy-driven solutions.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Discuss the potential long-term logical outcomes of a fully automated legal system on the concept of 'Subjective Intent'.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Analyze the causal link between ocean temperature anomalies and the frequency of extreme weather events using atmospheric logic.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "If a man is born in 1950 and dies in 1950, yet he is 20 years old, explain the logic behind this scenario.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Discuss the long-term impact of rising microplastic concentrations in soil on global agricultural yields and food security logic.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Evaluate the trade-off logic between individual privacy rights and public safety in the context of mass facial recognition deployment.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Explain the concept of 'Confirmation Bias' and how it logically impairs the objective evaluation of scientific data.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Analyze the logical flaws in the 'Malthusian Catastrophe' theory when accounting for modern technological innovation.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Prove by contradiction that there is no largest prime number.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Discuss the logical framework required for a globally coordinated response to a future planetary defense scenario against a comet.",
+        "label": "REASON",
+        "lang": "en"
+    },
+    {
+        "text": "Analyze the feasibility logic of establishing a space elevator on Earth compared to establishing one on the Moon.",
+        "label": "REASON",
+        "lang": "en"
+    }
+]
