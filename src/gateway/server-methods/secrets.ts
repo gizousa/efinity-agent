@@ -1,0 +1,216 @@
+/**
+ * Gateway RPC handlers for secrets management.
+ *
+ * TODO: Consider adding explicit auth/permission checks for secrets RPC.
+ * Currently these handlers are accessible to any connected UI client.
+ * If the gateway is exposed beyond localhost, this could be a security concern.
+ * Options:
+ * - Gate behind same auth used for other sensitive endpoints
+ * - Explicitly document/enforce loopback-only access
+ * - Add a secrets-specific permission flag
+ */
+
+import {
+  getSecret,
+  hasSecret,
+  listSecrets,
+  removeSecret,
+  setSecret,
+  updateSecret,
+  type SecretMetadata,
+} from "../../secrets/index.js";
+import { ErrorCodes, errorShape } from "../protocol/index.js";
+import type { GatewayRequestHandlers } from "./types.js";
+
+export type SecretsListResult = {
+  secrets: SecretMetadata[];
+};
+
+export type SecretsSetParams = {
+  name: string;
+  value: string;
+  description?: string;
+};
+
+export type SecretsRemoveParams = {
+  name: string;
+};
+
+export type SecretsGetParams = {
+  name: string;
+};
+
+export type SecretsUpdateParams = {
+  name: string;
+  value?: string;
+  description?: string;
+};
+
+function validateSecretsSetParams(params: unknown): params is SecretsSetParams {
+  if (!params || typeof params !== "object") return false;
+  const p = params as Record<string, unknown>;
+  if (typeof p.name !== "string" || !p.name.trim()) return false;
+  if (typeof p.value !== "string") return false;
+  return true;
+}
+
+function validateSecretsRemoveParams(params: unknown): params is SecretsRemoveParams {
+  if (!params || typeof params !== "object") return false;
+  const p = params as Record<string, unknown>;
+  if (typeof p.name !== "string" || !p.name.trim()) return false;
+  return true;
+}
+
+function validateSecretsGetParams(params: unknown): params is SecretsGetParams {
+  if (!params || typeof params !== "object") return false;
+  const p = params as Record<string, unknown>;
+  if (typeof p.name !== "string" || !p.name.trim()) return false;
+  return true;
+}
+
+function validateSecretsUpdateParams(params: unknown): params is SecretsUpdateParams {
+  if (!params || typeof params !== "object") return false;
+  const p = params as Record<string, unknown>;
+  if (typeof p.name !== "string" || !p.name.trim()) return false;
+  // At least one of value or description should be provided
+  const hasValue = typeof p.value === "string";
+  const hasDescription = typeof p.description === "string";
+  if (!hasValue && !hasDescription) return false;
+  return true;
+}
+
+export const secretsHandlers: GatewayRequestHandlers = {
+  "secrets.list": ({ respond }) => {
+    try {
+      const secrets = listSecrets();
+      respond(true, { secrets } satisfies SecretsListResult);
+    } catch (err) {
+      respond(false, undefined, errorShape(ErrorCodes.UNAVAILABLE, String(err)));
+    }
+  },
+
+  "secrets.set": async ({ params, respond }) => {
+    if (!validateSecretsSetParams(params)) {
+      respond(
+        false,
+        undefined,
+        errorShape(
+          ErrorCodes.INVALID_REQUEST,
+          "invalid secrets.set params: name and value required",
+        ),
+      );
+      return;
+    }
+
+    try {
+      const result = await setSecret(params.name.trim(), params.value, params.description?.trim());
+      if (result.ok) {
+        respond(true, { ok: true });
+      } else {
+        respond(
+          false,
+          undefined,
+          errorShape(ErrorCodes.UNAVAILABLE, `failed to save secret: ${result.error}`),
+        );
+      }
+    } catch (err) {
+      respond(false, undefined, errorShape(ErrorCodes.UNAVAILABLE, String(err)));
+    }
+  },
+
+  "secrets.update": async ({ params, respond }) => {
+    if (!validateSecretsUpdateParams(params)) {
+      respond(
+        false,
+        undefined,
+        errorShape(
+          ErrorCodes.INVALID_REQUEST,
+          "invalid secrets.update params: name required, plus value and/or description",
+        ),
+      );
+      return;
+    }
+
+    const name = params.name.trim();
+    if (!hasSecret(name)) {
+      respond(
+        false,
+        undefined,
+        errorShape(ErrorCodes.INVALID_REQUEST, `secret "${name}" not found`),
+      );
+      return;
+    }
+
+    try {
+      const result = await updateSecret(name, {
+        value: params.value,
+        description: params.description?.trim(),
+      });
+      if (result.ok) {
+        respond(true, { ok: true });
+      } else {
+        respond(
+          false,
+          undefined,
+          errorShape(ErrorCodes.UNAVAILABLE, `failed to update secret: ${result.error}`),
+        );
+      }
+    } catch (err) {
+      respond(false, undefined, errorShape(ErrorCodes.UNAVAILABLE, String(err)));
+    }
+  },
+
+  "secrets.remove": async ({ params, respond }) => {
+    if (!validateSecretsRemoveParams(params)) {
+      respond(
+        false,
+        undefined,
+        errorShape(ErrorCodes.INVALID_REQUEST, "invalid secrets.remove params: name required"),
+      );
+      return;
+    }
+
+    const name = params.name.trim();
+    if (!hasSecret(name)) {
+      respond(
+        false,
+        undefined,
+        errorShape(ErrorCodes.INVALID_REQUEST, `secret "${name}" not found`),
+      );
+      return;
+    }
+
+    try {
+      const result = await removeSecret(name);
+      if (result.ok) {
+        respond(true, { ok: true });
+      } else {
+        respond(
+          false,
+          undefined,
+          errorShape(ErrorCodes.UNAVAILABLE, `failed to remove secret: ${result.error}`),
+        );
+      }
+    } catch (err) {
+      respond(false, undefined, errorShape(ErrorCodes.UNAVAILABLE, String(err)));
+    }
+  },
+
+  "secrets.has": ({ params, respond }) => {
+    if (!validateSecretsGetParams(params)) {
+      respond(
+        false,
+        undefined,
+        errorShape(ErrorCodes.INVALID_REQUEST, "invalid secrets.has params: name required"),
+      );
+      return;
+    }
+
+    try {
+      const exists = hasSecret(params.name.trim());
+      respond(true, { exists });
+    } catch (err) {
+      respond(false, undefined, errorShape(ErrorCodes.UNAVAILABLE, String(err)));
+    }
+  },
+};

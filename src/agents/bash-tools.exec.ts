@@ -28,6 +28,7 @@ import {
 import { enqueueSystemEvent } from "../infra/system-events.js";
 import { logInfo, logWarn } from "../logger.js";
 import { formatSpawnError, spawnWithFallback } from "../process/spawn-utils.js";
+import { getSecretsEnvVars } from "../secrets/env.js";
 import {
   type ProcessSession,
   type SessionStdin,
@@ -134,6 +135,8 @@ export type ExecToolDefaults = {
   messageProvider?: string;
   notifyOnExit?: boolean;
   cwd?: string;
+  /** Secrets config for filtering which secrets are injected as env vars. */
+  secretsConfig?: import("../config/types.secrets.js").SecretsConfig;
 };
 
 export type { BashSandboxConfig } from "./bash-tools.shared.js";
@@ -766,6 +769,7 @@ export function createExecTool(
       : 1800;
   const defaultPathPrepend = normalizePathPrepend(defaults?.pathPrepend);
   const safeBins = resolveSafeBins(defaults?.safeBins);
+  const secretsConfig = defaults?.secretsConfig;
   const notifyOnExit = defaults?.notifyOnExit !== false;
   const notifySessionKey = defaults?.sessionKey?.trim() || undefined;
   const approvalRunningNoticeMs = resolveApprovalRunningNoticeMs(defaults?.approvalRunningNoticeMs);
@@ -934,6 +938,15 @@ export function createExecTool(
         applyShellPath(env, shellPath);
       }
       applyPathPrepend(env, defaultPathPrepend);
+
+      // Inject user secrets as env vars (values never enter model context)
+      // Don't override explicitly provided env vars from params.env
+      const secretsEnv = getSecretsEnvVars(secretsConfig);
+      for (const [key, value] of Object.entries(secretsEnv)) {
+        if (!(key in (params.env ?? {}))) {
+          env[key] = value;
+        }
+      }
 
       if (host === "node") {
         const approvals = resolveExecApprovals(agentId, { security, ask });
