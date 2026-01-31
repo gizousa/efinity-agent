@@ -4,8 +4,16 @@ const MAX_ASSISTANT_AVATAR = 200;
 export const DEFAULT_ASSISTANT_NAME = "Assistant";
 export const DEFAULT_ASSISTANT_AVATAR = "A";
 
+export const DEFAULT_USER_NAME = "You";
+export const DEFAULT_USER_AVATAR = null;
+
 export type AssistantIdentity = {
   agentId?: string | null;
+  name: string;
+  avatar: string | null;
+};
+
+export type UserIdentity = {
   name: string;
   avatar: string | null;
 };
@@ -14,6 +22,8 @@ declare global {
   interface Window {
     __OPENCLAW_ASSISTANT_NAME__?: string;
     __OPENCLAW_ASSISTANT_AVATAR__?: string;
+    __OPENCLAW_USER_NAME__?: string;
+    __OPENCLAW_USER_AVATAR__?: string;
   }
 }
 
@@ -42,5 +52,24 @@ export function resolveInjectedAssistantIdentity(): AssistantIdentity {
   return normalizeAssistantIdentity({
     name: window.__OPENCLAW_ASSISTANT_NAME__,
     avatar: window.__OPENCLAW_ASSISTANT_AVATAR__,
+  });
+}
+
+const MAX_USER_NAME = 50;
+const MAX_USER_AVATAR = 200;
+
+export function normalizeUserIdentity(input?: Partial<UserIdentity> | null): UserIdentity {
+  const name = coerceIdentityValue(input?.name, MAX_USER_NAME) ?? DEFAULT_USER_NAME;
+  const avatar = coerceIdentityValue(input?.avatar ?? undefined, MAX_USER_AVATAR) ?? null;
+  return { name, avatar };
+}
+
+export function resolveInjectedUserIdentity(): UserIdentity {
+  if (typeof window === "undefined") {
+    return normalizeUserIdentity({});
+  }
+  return normalizeUserIdentity({
+    name: window.__OPENCLAW_USER_NAME__,
+    avatar: window.__OPENCLAW_USER_AVATAR__,
   });
 }

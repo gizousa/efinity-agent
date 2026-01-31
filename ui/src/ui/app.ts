@@ -2,7 +2,10 @@ import { LitElement, html, nothing } from "lit";
 import { customElement, state } from "lit/decorators.js";
 
 import type { GatewayBrowserClient, GatewayHelloOk } from "./gateway";
-import { resolveInjectedAssistantIdentity } from "./assistant-identity";
+import {
+  resolveInjectedAssistantIdentity,
+  resolveInjectedUserIdentity,
+} from "./assistant-identity";
 import { loadSettings, type UiSettings } from "./storage";
 import { renderApp } from "./app-render";
 import type { Tab } from "./navigation";
@@ -83,6 +86,7 @@ declare global {
 }
 
 const injectedAssistantIdentity = resolveInjectedAssistantIdentity();
+const injectedUserIdentity = resolveInjectedUserIdentity();
 
 function resolveOnboardingMode(): boolean {
   if (!window.location.search) return false;
@@ -112,6 +116,9 @@ export class OpenClawApp extends LitElement {
   @state() assistantName = injectedAssistantIdentity.name;
   @state() assistantAvatar = injectedAssistantIdentity.avatar;
   @state() assistantAgentId = injectedAssistantIdentity.agentId ?? null;
+
+  @state() userName = injectedUserIdentity.name;
+  @state() userAvatar = injectedUserIdentity.avatar;
 
   @state() sessionKey = this.settings.sessionKey;
   @state() chatLoading = false;

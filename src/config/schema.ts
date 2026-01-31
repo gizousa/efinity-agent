@@ -280,6 +280,8 @@ const FIELD_LABELS: Record<string, string> = {
   "ui.seamColor": "Accent Color",
   "ui.assistant.name": "Assistant Name",
   "ui.assistant.avatar": "Assistant Avatar",
+  "ui.user.name": "User Name",
+  "ui.user.avatar": "User Avatar",
   "browser.evaluateEnabled": "Browser Evaluate Enabled",
   "browser.snapshotDefaults": "Browser Snapshot Defaults",
   "browser.snapshotDefaults.mode": "Browser Snapshot Mode",
@@ -676,6 +678,9 @@ const FIELD_HELP: Record<string, string> = {
     "Enable the Guild Members privileged intent. Must also be enabled in the Discord Developer Portal. Default: false.",
   "channels.slack.dm.policy":
     'Direct message access control ("pairing" recommended). "open" requires channels.slack.dm.allowFrom=["*"].',
+  "ui.user.name": 'Display name shown for the user in the webchat UI (default: "You").',
+  "ui.user.avatar":
+    "User avatar in the webchat UI (http(s) URL, data URI, or emoji/text character).",
 };
 
 const FIELD_PLACEHOLDERS: Record<string, string> = {
