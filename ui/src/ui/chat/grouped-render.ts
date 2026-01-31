@@ -1,9 +1,11 @@
 import { html, nothing } from "lit";
+import { ref } from "lit/directives/ref.js";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
 
 import type { AssistantIdentity } from "../assistant-identity";
 import { toSanitizedMarkdownHtml } from "../markdown";
 import type { MessageGroup } from "../types/chat-types";
+import { codeBlockCopyRef } from "./code-block-copy";
 import { renderCopyAsMarkdownButton } from "./copy-as-markdown";
 import { isToolResultMessage, normalizeRoleForGrouping } from "./message-normalizer";
 import {
@@ -267,7 +269,7 @@ function renderGroupedMessage(
       }
       ${
         markdown
-          ? html`<div class="chat-text">${unsafeHTML(toSanitizedMarkdownHtml(markdown))}</div>`
+          ? html`<div class="chat-text" ${opts.isStreaming ? nothing : ref(codeBlockCopyRef)}>${unsafeHTML(toSanitizedMarkdownHtml(markdown))}</div>`
           : nothing
       }
       ${toolCards.map((card) => renderToolCardSidebar(card, onOpenSidebar))}
