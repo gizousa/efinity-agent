@@ -31,9 +31,10 @@ RUN pnpm ui:build
 
 ENV NODE_ENV=production
 
+# Create startup script (enables token-only auth for cloud deployments)
+RUN printf '#!/bin/bash\nset -e\nSTATE_DIR=${OPENCLAW_STATE_DIR:-$HOME/.openclaw}\nmkdir -p "$STATE_DIR"\nCONFIG_FILE="$STATE_DIR/openclaw.json"\nif [ ! -f "$CONFIG_FILE" ]; then\n  echo '\''{"gateway":{"controlUi":{"allowInsecureAuth":true},"auth":{"mode":"token"}}}'\'' > "$CONFIG_FILE"\nfi\nexec node dist/index.js gateway --allow-unconfigured --port ${PORT:-10000} --bind lan\n' > /app/docker-entrypoint.sh && chmod +x /app/docker-entrypoint.sh
+
 # Security hardening: Run as non-root user
-# The node:22-bookworm image includes a 'node' user (uid 1000)
-# This reduces the attack surface by preventing container escape via root privileges
 USER node
 
-CMD ["node", "dist/index.js"]
+CMD ["/app/docker-entrypoint.sh"]
