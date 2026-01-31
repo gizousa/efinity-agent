@@ -49,6 +49,10 @@ const DEFAULT_DB_PATH = resolveDefaultDbPath();
 const EMBEDDING_DIMENSIONS: Record<string, number> = {
   "text-embedding-3-small": 1536,
   "text-embedding-3-large": 3072,
+  // VoyageAI voyage-4 family (default dimensions; all support flexible 256/512/1024/2048)
+  "voyage-4": 1024,
+  "voyage-4-lite": 1024,
+  "voyage-4-large": 1024,
 };
 
 function assertAllowedKeys(value: Record<string, unknown>, allowed: string[], label: string) {

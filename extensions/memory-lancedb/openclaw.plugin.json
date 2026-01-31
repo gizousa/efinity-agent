@@ -40,7 +40,13 @@
           },
           "model": {
             "type": "string",
-            "enum": ["text-embedding-3-small", "text-embedding-3-large"]
+            "enum": [
+              "text-embedding-3-small",
+              "text-embedding-3-large",
+              "voyage-4",
+              "voyage-4-lite",
+              "voyage-4-large"
+            ]
           }
         },
         "required": ["apiKey"]

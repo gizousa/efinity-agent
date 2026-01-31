@@ -20,6 +20,7 @@ import {
   type EmbeddingProviderResult,
   type GeminiEmbeddingClient,
   type OpenAiEmbeddingClient,
+  type VoyageAiEmbeddingClient,
 } from "./embeddings.js";
 import { DEFAULT_GEMINI_EMBEDDING_MODEL } from "./embeddings-gemini.js";
 import { DEFAULT_OPENAI_EMBEDDING_MODEL } from "./embeddings-openai.js";
@@ -123,11 +124,12 @@ export class MemoryIndexManager {
   private readonly workspaceDir: string;
   private readonly settings: ResolvedMemorySearchConfig;
   private provider: EmbeddingProvider;
-  private readonly requestedProvider: "openai" | "local" | "gemini" | "auto";
-  private fallbackFrom?: "openai" | "local" | "gemini";
+  private readonly requestedProvider: "openai" | "local" | "gemini" | "voyageai" | "auto";
+  private fallbackFrom?: "openai" | "local" | "gemini" | "voyageai";
   private fallbackReason?: string;
   private openAi?: OpenAiEmbeddingClient;
   private gemini?: GeminiEmbeddingClient;
+  private voyageAi?: VoyageAiEmbeddingClient;
   private batch: {
     enabled: boolean;
     wait: boolean;
@@ -228,6 +230,7 @@ export class MemoryIndexManager {
     this.fallbackReason = params.providerResult.fallbackReason;
     this.openAi = params.providerResult.openAi;
     this.gemini = params.providerResult.gemini;
+    this.voyageAi = params.providerResult.voyageAi;
     this.sources = new Set(params.settings.sources);
     this.db = this.openDatabase();
     this.providerKey = this.computeProviderKey();

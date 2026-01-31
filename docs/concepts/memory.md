@@ -147,6 +147,31 @@ Notes:
 - `remote.headers` lets you add extra headers if needed.
 - Default model: `gemini-embedding-001`.
 
+### VoyageAI embeddings
+
+Set the provider to `voyageai` to use the VoyageAI embeddings API:
+
+```json5
+agents: {
+  defaults: {
+    memorySearch: {
+      provider: "voyageai",
+      model: "voyage-4",
+      remote: {
+        apiKey: "YOUR_VOYAGE_API_KEY"
+      }
+    }
+  }
+}
+```
+
+Notes:
+
+- Supported models: `voyage-4` (default), `voyage-4-lite` (cost-optimized), `voyage-4-large` (best quality).
+- All voyage-4 models return 1024-dimensional embeddings by default.
+- Set `VOYAGE_API_KEY` environment variable or use `remote.apiKey`.
+- VoyageAI is optimized for general-purpose and multilingual retrieval.
+
 If you want to use a **custom OpenAI-compatible endpoint** (OpenRouter, vLLM, or a proxy),
 you can use the `remote` configuration with the OpenAI provider:
 
@@ -171,7 +196,7 @@ If you don't want to set an API key, use `memorySearch.provider = "local"` or se
 
 Fallbacks:
 
-- `memorySearch.fallback` can be `openai`, `gemini`, `local`, or `none`.
+- `memorySearch.fallback` can be `openai`, `gemini`, `voyageai`, `local`, or `none`.
 - The fallback provider is only used when the primary embedding provider fails.
 
 Batch indexing (OpenAI + Gemini):
