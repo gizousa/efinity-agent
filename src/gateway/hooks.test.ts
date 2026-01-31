@@ -130,6 +130,35 @@ describe("gateway hooks helpers", () => {
     const bad = normalizeAgentPayload({ message: "yo", channel: "sms" });
     expect(bad.ok).toBe(false);
   });
+
+  test("normalizeAgentPayload extracts agentId", () => {
+    const withAgentId = normalizeAgentPayload(
+      { message: "hello", agentId: "  reviewer  " },
+      { idFactory: () => "fixed" },
+    );
+    expect(withAgentId.ok).toBe(true);
+    if (withAgentId.ok) {
+      expect(withAgentId.value.agentId).toBe("reviewer");
+    }
+
+    const withoutAgentId = normalizeAgentPayload(
+      { message: "hello" },
+      { idFactory: () => "fixed" },
+    );
+    expect(withoutAgentId.ok).toBe(true);
+    if (withoutAgentId.ok) {
+      expect(withoutAgentId.value.agentId).toBeUndefined();
+    }
+
+    const emptyAgentId = normalizeAgentPayload(
+      { message: "hello", agentId: "   " },
+      { idFactory: () => "fixed" },
+    );
+    expect(emptyAgentId.ok).toBe(true);
+    if (emptyAgentId.ok) {
+      expect(emptyAgentId.value.agentId).toBeUndefined();
+    }
+  });
 });
 
 const emptyRegistry = createTestRegistry([]);

@@ -42,6 +42,7 @@ export function createGatewayHooksRequestHandler(params: {
     thinking?: string;
     timeoutSeconds?: number;
     allowUnsafeExternalContent?: boolean;
+    agentId?: string;
   }) => {
     const sessionKey = value.sessionKey.trim() ? value.sessionKey.trim() : `hook:${randomUUID()}`;
     const mainSessionKey = resolveMainSessionKeyFromConfig();
@@ -56,6 +57,7 @@ export function createGatewayHooksRequestHandler(params: {
       schedule: { kind: "at", atMs: now },
       sessionTarget: "isolated",
       wakeMode: value.wakeMode,
+      agentId: value.agentId,
       payload: {
         kind: "agentTurn",
         message: value.message,

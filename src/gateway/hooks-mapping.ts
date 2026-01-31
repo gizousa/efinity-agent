@@ -55,6 +55,7 @@ export type HookAction =
       model?: string;
       thinking?: string;
       timeoutSeconds?: number;
+      agentId?: string;
     };
 
 export type HookMappingResult =
@@ -94,6 +95,7 @@ type HookTransformResult = Partial<{
   model: string;
   thinking: string;
   timeoutSeconds: number;
+  agentId: string;
 }> | null;
 
 type HookTransformFn = (
@@ -297,6 +299,7 @@ function mergeAction(
     model: override.model ?? baseAgent?.model,
     thinking: override.thinking ?? baseAgent?.thinking,
     timeoutSeconds: override.timeoutSeconds ?? baseAgent?.timeoutSeconds,
+    agentId: override.agentId ?? baseAgent?.agentId,
   });
 }
 
