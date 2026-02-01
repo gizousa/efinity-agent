@@ -31,8 +31,7 @@ import { GatewayClient } from "./client.js";
 import { renderCatNoncePngBase64 } from "./live-image-probe.js";
 import { startGatewayServer } from "./server.js";
 
-const LIVE =
-  isTruthyEnvValue(process.env.LIVE) || isTruthyEnvValue(process.env.CLAWDBOT_LIVE_TEST);
+const LIVE = isTruthyEnvValue(process.env.LIVE) || isTruthyEnvValue(process.env.CLAWDBOT_LIVE_TEST);
 const GATEWAY_LIVE = isTruthyEnvValue(process.env.CLAWDBOT_LIVE_GATEWAY);
 const ZAI_FALLBACK = isTruthyEnvValue(process.env.CLAWDBOT_LIVE_GATEWAY_ZAI_FALLBACK);
 const PROVIDERS = parseFilter(process.env.CLAWDBOT_LIVE_GATEWAY_PROVIDERS);
@@ -192,7 +191,7 @@ async function isPortFree(port: number): Promise<boolean> {
 }
 
 async function getFreeGatewayPort(): Promise<number> {
-  // Gateway uses derived ports (bridge/browser/canvas). Avoid flaky collisions by
+  // Gateway uses derived ports (browser/canvas). Avoid flaky collisions by
   // ensuring the common derived offsets are free too.
   for (let attempt = 0; attempt < 25; attempt += 1) {
     const port = await getFreePort();

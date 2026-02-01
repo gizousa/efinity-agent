@@ -11,12 +11,11 @@ import {
   isAnthropicRateLimitError,
 } from "./live-auth-keys.js";
 import { isModernModelRef } from "./live-model-filter.js";
-import { getApiKeyForModel } from "./model-auth.js";
+import { getApiKeyForModel, requireApiKey } from "./model-auth.js";
 import { ensureClawdbotModelsJson } from "./models-config.js";
 import { isRateLimitErrorMessage } from "./pi-embedded-helpers/errors.js";
 
-const LIVE =
-  isTruthyEnvValue(process.env.LIVE) || isTruthyEnvValue(process.env.CLAWDBOT_LIVE_TEST);
+const LIVE = isTruthyEnvValue(process.env.LIVE) || isTruthyEnvValue(process.env.CLAWDBOT_LIVE_TEST);
 const DIRECT_ENABLED = Boolean(process.env.CLAWDBOT_LIVE_MODELS?.trim());
 const REQUIRE_PROFILE_KEYS = isTruthyEnvValue(process.env.CLAWDBOT_LIVE_REQUIRE_PROFILE_KEYS);
 
@@ -227,7 +226,7 @@ describeLive("live models (profile keys)", () => {
           const apiKey =
             model.provider === "anthropic" && anthropicKeys.length > 0
               ? anthropicKeys[attempt]
-              : apiKeyInfo.apiKey;
+              : requireApiKey(apiKeyInfo, model.provider);
           try {
             // Special regression: OpenAI requires replayed `reasoning` items for tool-only turns.
             if (

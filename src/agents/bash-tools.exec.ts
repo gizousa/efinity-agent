@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import { spawn, type ChildProcessWithoutNullStreams } from "node:child_process";
+import path from "node:path";
 import type { AgentTool, AgentToolResult } from "@mariozechner/pi-agent-core";
 import { Type } from "@sinclair/typebox";
 
@@ -12,12 +13,15 @@ import {
   maxAsk,
   minSecurity,
   recordAllowlistUse,
-  requestExecApprovalViaSocket,
   resolveCommandResolution,
   resolveExecApprovals,
 } from "../infra/exec-approvals.js";
 import { requestHeartbeatNow } from "../infra/heartbeat-wake.js";
 import { buildNodeShellCommand } from "../infra/node-shell.js";
+import {
+  getShellPathFromLoginShell,
+  resolveShellEnvFallbackTimeoutMs,
+} from "../infra/shell-env.js";
 import { enqueueSystemEvent } from "../infra/system-events.js";
 import { logInfo } from "../logger.js";
 import {
@@ -89,6 +93,7 @@ export type ExecToolDefaults = {
   security?: ExecSecurity;
   ask?: ExecAsk;
   node?: string;
+  pathPrepend?: string[];
   agentId?: string;
   backgroundMs?: number;
   timeoutSec?: number;
@@ -207,6 +212,58 @@ function normalizeNotifyOutput(value: string) {
   return value.replace(/\s+/g, " ").trim();
 }
 
+function normalizePathPrepend(entries?: string[]) {
+  if (!Array.isArray(entries)) return [];
+  const seen = new Set<string>();
+  const normalized: string[] = [];
+  for (const entry of entries) {
+    if (typeof entry !== "string") continue;
+    const trimmed = entry.trim();
+    if (!trimmed || seen.has(trimmed)) continue;
+    seen.add(trimmed);
+    normalized.push(trimmed);
+  }
+  return normalized;
+}
+
+function mergePathPrepend(existing: string | undefined, prepend: string[]) {
+  if (prepend.length === 0) return existing;
+  const partsExisting = (existing ?? "")
+    .split(path.delimiter)
+    .map((part) => part.trim())
+    .filter(Boolean);
+  const merged: string[] = [];
+  const seen = new Set<string>();
+  for (const part of [...prepend, ...partsExisting]) {
+    if (seen.has(part)) continue;
+    seen.add(part);
+    merged.push(part);
+  }
+  return merged.join(path.delimiter);
+}
+
+function applyPathPrepend(
+  env: Record<string, string>,
+  prepend: string[],
+  options?: { requireExisting?: boolean },
+) {
+  if (prepend.length === 0) return;
+  if (options?.requireExisting && !env.PATH) return;
+  const merged = mergePathPrepend(env.PATH, prepend);
+  if (merged) env.PATH = merged;
+}
+
+function applyShellPath(env: Record<string, string>, shellPath?: string | null) {
+  if (!shellPath) return;
+  const entries = shellPath
+    .split(path.delimiter)
+    .map((part) => part.trim())
+    .filter(Boolean);
+  if (entries.length === 0) return;
+  const merged = mergePathPrepend(env.PATH, entries);
+  if (merged) env.PATH = merged;
+}
+
 function maybeNotifyOnExit(session: ProcessSession, status: "completed" | "failed") {
   if (!session.backgrounded || !session.notifyOnExit || session.exitNotified) return;
   const sessionKey = session.sessionKey?.trim();
@@ -240,6 +297,7 @@ export function createExecTool(
     typeof defaults?.timeoutSec === "number" && defaults.timeoutSec > 0
       ? defaults.timeoutSec
       : 1800;
+  const defaultPathPrepend = normalizePathPrepend(defaults?.pathPrepend);
   const notifyOnExit = defaults?.notifyOnExit !== false;
   const notifySessionKey = defaults?.sessionKey?.trim() || undefined;
 
@@ -379,9 +437,21 @@ export function createExecTool(
             containerWorkdir: containerWorkdir ?? sandbox.containerWorkdir,
           })
         : mergedEnv;
+      if (!sandbox && host === "gateway" && !params.env?.PATH) {
+        const shellPath = getShellPathFromLoginShell({
+          env: process.env,
+          timeoutMs: resolveShellEnvFallbackTimeoutMs(process.env),
+        });
+        applyShellPath(env, shellPath);
+      }
+      applyPathPrepend(env, defaultPathPrepend);
 
       if (host === "node") {
-        if (security === "deny") {
+        const approvals = resolveExecApprovals(defaults?.agentId);
+        const hostSecurity = minSecurity(security, approvals.agent.security);
+        const hostAsk = maxAsk(ask, approvals.agent.ask);
+        const askFallback = approvals.agent.askFallback;
+        if (hostSecurity === "deny") {
           throw new Error("exec denied: host=node security=deny");
         }
         const boundNode = defaults?.node?.trim();
@@ -417,6 +487,90 @@ export function createExecTool(
           );
         }
         const argv = buildNodeShellCommand(params.command, nodeInfo?.platform);
+        const nodeEnv = params.env ? { ...params.env } : undefined;
+        if (nodeEnv) {
+          applyPathPrepend(nodeEnv, defaultPathPrepend, { requireExisting: true });
+        }
+        const resolution = resolveCommandResolution(params.command, workdir, env);
+        const allowlistMatch =
+          hostSecurity === "allowlist" ? matchAllowlist(approvals.allowlist, resolution) : null;
+        const requiresAsk =
+          hostAsk === "always" ||
+          (hostAsk === "on-miss" && hostSecurity === "allowlist" && !allowlistMatch);
+
+        let approvedByAsk = false;
+        let approvalDecision: "allow-once" | "allow-always" | null = null;
+        if (requiresAsk) {
+          const decisionResult = (await callGatewayTool(
+            "exec.approval.request",
+            { timeoutMs: 130_000 },
+            {
+              command: params.command,
+              cwd: workdir,
+              host: "node",
+              security: hostSecurity,
+              ask: hostAsk,
+              agentId: defaults?.agentId,
+              resolvedPath: resolution?.resolvedPath ?? null,
+              sessionKey: defaults?.sessionKey ?? null,
+              timeoutMs: 120_000,
+            },
+          )) as { decision?: string } | null;
+          const decision =
+            decisionResult && typeof decisionResult === "object"
+              ? (decisionResult.decision ?? null)
+              : null;
+
+          if (decision === "deny") {
+            throw new Error("exec denied: user denied");
+          }
+          if (!decision) {
+            if (askFallback === "full") {
+              approvedByAsk = true;
+              approvalDecision = "allow-once";
+            } else if (askFallback === "allowlist") {
+              if (!allowlistMatch) {
+                throw new Error("exec denied: approval required (approval UI not available)");
+              }
+              approvedByAsk = true;
+              approvalDecision = "allow-once";
+            } else {
+              throw new Error("exec denied: approval required (approval UI not available)");
+            }
+          }
+          if (decision === "allow-once") {
+            approvedByAsk = true;
+            approvalDecision = "allow-once";
+          }
+          if (decision === "allow-always") {
+            approvedByAsk = true;
+            approvalDecision = "allow-always";
+            if (hostSecurity === "allowlist") {
+              const pattern =
+                resolution?.resolvedPath ??
+                resolution?.rawExecutable ??
+                params.command.split(/\s+/).shift() ??
+                "";
+              if (pattern) {
+                addAllowlistEntry(approvals.file, defaults?.agentId, pattern);
+              }
+            }
+          }
+        }
+
+        if (hostSecurity === "allowlist" && !allowlistMatch && !approvedByAsk) {
+          throw new Error("exec denied: allowlist miss");
+        }
+
+        if (allowlistMatch) {
+          recordAllowlistUse(
+            approvals.file,
+            defaults?.agentId,
+            allowlistMatch,
+            params.command,
+            resolution?.resolvedPath,
+          );
+        }
         const invokeParams: Record<string, unknown> = {
           nodeId,
           command: "system.run",
@@ -424,10 +578,12 @@ export function createExecTool(
             command: argv,
             rawCommand: params.command,
             cwd: workdir,
-            env: params.env,
+            env: nodeEnv,
             timeoutMs: typeof params.timeout === "number" ? params.timeout * 1000 : undefined,
             agentId: defaults?.agentId,
             sessionKey: defaults?.sessionKey,
+            approved: approvedByAsk,
+            approvalDecision: approvalDecision ?? undefined,
           },
           idempotencyKey: crypto.randomUUID(),
         };
@@ -477,20 +633,25 @@ export function createExecTool(
 
         let approvedByAsk = false;
         if (requiresAsk) {
+          const decisionResult = (await callGatewayTool(
+            "exec.approval.request",
+            { timeoutMs: 130_000 },
+            {
+              command: params.command,
+              cwd: workdir,
+              host: "gateway",
+              security: hostSecurity,
+              ask: hostAsk,
+              agentId: defaults?.agentId,
+              resolvedPath: resolution?.resolvedPath ?? null,
+              sessionKey: defaults?.sessionKey ?? null,
+              timeoutMs: 120_000,
+            },
+          )) as { decision?: string } | null;
           const decision =
-            (await requestExecApprovalViaSocket({
-              socketPath: approvals.socketPath,
-              token: approvals.token,
-              request: {
-                command: params.command,
-                cwd: workdir,
-                host: "gateway",
-                security: hostSecurity,
-                ask: hostAsk,
-                agentId: defaults?.agentId,
-                resolvedPath: resolution?.resolvedPath ?? null,
-              },
-            })) ?? null;
+            decisionResult && typeof decisionResult === "object"
+              ? (decisionResult.decision ?? null)
+              : null;
 
           if (decision === "deny") {
             throw new Error("exec denied: user denied");
@@ -500,15 +661,11 @@ export function createExecTool(
               approvedByAsk = true;
             } else if (askFallback === "allowlist") {
               if (!allowlistMatch) {
-                throw new Error(
-                  "exec denied: approval required (companion app approval UI not available)",
-                );
+                throw new Error("exec denied: approval required (approval UI not available)");
               }
               approvedByAsk = true;
             } else {
-              throw new Error(
-                "exec denied: approval required (companion app approval UI not available)",
-              );
+              throw new Error("exec denied: approval required (approval UI not available)");
             }
           }
           if (decision === "allow-once") {

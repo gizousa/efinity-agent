@@ -132,6 +132,26 @@ function buildChatCommands(): ChatCommandDefinition[] {
       textAlias: "/commands",
     }),
     defineChatCommand({
+      key: "skill",
+      nativeName: "skill",
+      description: "Run a skill by name.",
+      textAlias: "/skill",
+      args: [
+        {
+          name: "name",
+          description: "Skill name",
+          type: "string",
+          required: true,
+        },
+        {
+          name: "input",
+          description: "Skill input",
+          type: "string",
+          captureRemaining: true,
+        },
+      ],
+    }),
+    defineChatCommand({
       key: "status",
       nativeName: "status",
       description: "Show current status.",
@@ -233,14 +253,14 @@ function buildChatCommands(): ChatCommandDefinition[] {
     defineChatCommand({
       key: "usage",
       nativeName: "usage",
-      description: "Toggle per-response usage line.",
+      description: "Usage footer or cost summary.",
       textAlias: "/usage",
       args: [
         {
           name: "mode",
-          description: "off, tokens, or full",
+          description: "off, tokens, full, or cost",
           type: "string",
-          choices: ["off", "tokens", "full"],
+          choices: ["off", "tokens", "full", "cost"],
         },
       ],
       argsMenu: "auto",
@@ -292,12 +312,14 @@ function buildChatCommands(): ChatCommandDefinition[] {
       nativeName: "reset",
       description: "Reset the current session.",
       textAlias: "/reset",
+      acceptsArgs: true,
     }),
     defineChatCommand({
       key: "new",
       nativeName: "new",
       description: "Start a new session.",
       textAlias: "/new",
+      acceptsArgs: true,
     }),
     defineChatCommand({
       key: "compact",

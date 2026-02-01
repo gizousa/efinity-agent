@@ -1,15 +1,20 @@
 import type { Command } from "commander";
 import { DEFAULT_CHAT_CHANNEL } from "../../channels/registry.js";
 import { agentCliCommand } from "../../commands/agent-via-gateway.js";
-import { agentsAddCommand, agentsDeleteCommand, agentsListCommand } from "../../commands/agents.js";
+import {
+  agentsAddCommand,
+  agentsDeleteCommand,
+  agentsListCommand,
+  agentsSetIdentityCommand,
+} from "../../commands/agents.js";
 import { setVerbose } from "../../globals.js";
 import { defaultRuntime } from "../../runtime.js";
 import { formatDocsLink } from "../../terminal/links.js";
 import { theme } from "../../terminal/theme.js";
 import { hasExplicitOptions } from "../command-options.js";
 import { createDefaultDeps } from "../deps.js";
+import { runCommandWithRuntime } from "../cli-utils.js";
 import { collectOption } from "./helpers.js";
-import { ensureConfigReady } from "./config-guard.js";
 
 export function registerAgentCommands(program: Command, args: { agentChannelOptions: string }) {
   program
@@ -33,11 +38,7 @@ export function registerAgentCommands(program: Command, args: { agentChannelOpti
       "Run the embedded agent locally (requires model provider API keys in your shell)",
       false,
     )
-    .option(
-      "--deliver",
-      "Send the agent's reply back to the selected channel",
-      false,
-    )
+    .option("--deliver", "Send the agent's reply back to the selected channel", false)
     .option("--json", "Output result as JSON", false)
     .option(
       "--timeout <seconds>",
@@ -58,17 +59,13 @@ Examples:
 ${theme.muted("Docs:")} ${formatDocsLink("/cli/agent", "docs.clawd.bot/cli/agent")}`,
     )
     .action(async (opts) => {
-      await ensureConfigReady({ runtime: defaultRuntime, migrateState: false });
       const verboseLevel = typeof opts.verbose === "string" ? opts.verbose.toLowerCase() : "";
       setVerbose(verboseLevel === "on");
       // Build default deps (keeps parity with other commands; future-proofing).
       const deps = createDefaultDeps();
-      try {
+      await runCommandWithRuntime(defaultRuntime, async () => {
         await agentCliCommand(opts, defaultRuntime, deps);
-      } catch (err) {
-        defaultRuntime.error(String(err));
-        defaultRuntime.exit(1);
-      }
+      });
     });
 
   const agents = program
@@ -86,16 +83,12 @@ ${theme.muted("Docs:")} ${formatDocsLink("/cli/agent", "docs.clawd.bot/cli/agent
     .option("--json", "Output JSON instead of text", false)
     .option("--bindings", "Include routing bindings", false)
     .action(async (opts) => {
-      await ensureConfigReady({ runtime: defaultRuntime, migrateState: true });
-      try {
+      await runCommandWithRuntime(defaultRuntime, async () => {
         await agentsListCommand(
           { json: Boolean(opts.json), bindings: Boolean(opts.bindings) },
           defaultRuntime,
         );
-      } catch (err) {
-        defaultRuntime.error(String(err));
-        defaultRuntime.exit(1);
-      }
+      });
     });
 
   agents
@@ -108,8 +101,7 @@ ${theme.muted("Docs:")} ${formatDocsLink("/cli/agent", "docs.clawd.bot/cli/agent
     .option("--non-interactive", "Disable prompts; requires --workspace", false)
     .option("--json", "Output JSON summary", false)
     .action(async (name, opts, command) => {
-      await ensureConfigReady({ runtime: defaultRuntime, migrateState: true });
-      try {
+      await runCommandWithRuntime(defaultRuntime, async () => {
         const hasFlags = hasExplicitOptions(command, [
           "workspace",
           "model",
@@ -130,10 +122,46 @@ ${theme.muted("Docs:")} ${formatDocsLink("/cli/agent", "docs.clawd.bot/cli/agent
           defaultRuntime,
           { hasFlags },
         );
-      } catch (err) {
-        defaultRuntime.error(String(err));
-        defaultRuntime.exit(1);
-      }
+      });
+    });
+
+  agents
+    .command("set-identity")
+    .description("Update an agent identity (name/theme/emoji)")
+    .option("--agent <id>", "Agent id to update")
+    .option("--workspace <dir>", "Workspace directory used to locate the agent + IDENTITY.md")
+    .option("--identity-file <path>", "Explicit IDENTITY.md path to read")
+    .option("--from-identity", "Read values from IDENTITY.md", false)
+    .option("--name <name>", "Identity name")
+    .option("--theme <theme>", "Identity theme")
+    .option("--emoji <emoji>", "Identity emoji")
+    .option("--json", "Output JSON summary", false)
+    .addHelpText(
+      "after",
+      () =>
+        `
+Examples:
+  clawdbot agents set-identity --agent main --name "Clawd" --emoji "🦞"
+  clawdbot agents set-identity --workspace ~/clawd --from-identity
+  clawdbot agents set-identity --identity-file ~/clawd/IDENTITY.md --agent main
+`,
+    )
+    .action(async (opts) => {
+      await runCommandWithRuntime(defaultRuntime, async () => {
+        await agentsSetIdentityCommand(
+          {
+            agent: opts.agent as string | undefined,
+            workspace: opts.workspace as string | undefined,
+            identityFile: opts.identityFile as string | undefined,
+            fromIdentity: Boolean(opts.fromIdentity),
+            name: opts.name as string | undefined,
+            theme: opts.theme as string | undefined,
+            emoji: opts.emoji as string | undefined,
+            json: Boolean(opts.json),
+          },
+          defaultRuntime,
+        );
+      });
     });
 
   agents
@@ -142,8 +170,7 @@ ${theme.muted("Docs:")} ${formatDocsLink("/cli/agent", "docs.clawd.bot/cli/agent
     .option("--force", "Skip confirmation", false)
     .option("--json", "Output JSON summary", false)
     .action(async (id, opts) => {
-      await ensureConfigReady({ runtime: defaultRuntime, migrateState: true });
-      try {
+      await runCommandWithRuntime(defaultRuntime, async () => {
         await agentsDeleteCommand(
           {
             id: String(id),
@@ -152,19 +179,12 @@ ${theme.muted("Docs:")} ${formatDocsLink("/cli/agent", "docs.clawd.bot/cli/agent
           },
           defaultRuntime,
         );
-      } catch (err) {
-        defaultRuntime.error(String(err));
-        defaultRuntime.exit(1);
-      }
+      });
     });
 
   agents.action(async () => {
-    await ensureConfigReady({ runtime: defaultRuntime, migrateState: true });
-    try {
+    await runCommandWithRuntime(defaultRuntime, async () => {
       await agentsListCommand({}, defaultRuntime);
-    } catch (err) {
-      defaultRuntime.error(String(err));
-      defaultRuntime.exit(1);
-    }
+    });
   });
 }

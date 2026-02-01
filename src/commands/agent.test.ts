@@ -18,6 +18,7 @@ import { loadModelCatalog } from "../agents/model-catalog.js";
 import { runEmbeddedPiAgent } from "../agents/pi-embedded.js";
 import type { ClawdbotConfig } from "../config/config.js";
 import * as configModule from "../config/config.js";
+import { emitAgentEvent, onAgentEvent } from "../infra/agent-events.js";
 import type { RuntimeEnv } from "../runtime.js";
 import { setActivePluginRegistry } from "../plugins/runtime.js";
 import { createPluginRuntime } from "../plugins/runtime/index.js";
@@ -136,6 +137,43 @@ describe("agentCommand", () => {
 
       const callArgs = vi.mocked(runEmbeddedPiAgent).mock.calls.at(-1)?.[0];
       expect(callArgs?.sessionId).toBe("session-123");
+    });
+  });
+
+  it("does not duplicate agent events from embedded runs", async () => {
+    await withTempHome(async (home) => {
+      const store = path.join(home, "sessions.json");
+      mockConfig(home, store);
+
+      const assistantEvents: Array<{ runId: string; text?: string }> = [];
+      const stop = onAgentEvent((evt) => {
+        if (evt.stream !== "assistant") return;
+        assistantEvents.push({
+          runId: evt.runId,
+          text: typeof evt.data?.text === "string" ? (evt.data.text as string) : undefined,
+        });
+      });
+
+      vi.mocked(runEmbeddedPiAgent).mockImplementationOnce(async (params) => {
+        const runId = (params as { runId?: string } | undefined)?.runId ?? "run";
+        const data = { text: "hello", delta: "hello" };
+        (
+          params as {
+            onAgentEvent?: (evt: { stream: string; data: Record<string, unknown> }) => void;
+          }
+        ).onAgentEvent?.({ stream: "assistant", data });
+        emitAgentEvent({ runId, stream: "assistant", data });
+        return {
+          payloads: [{ text: "hello" }],
+          meta: { agentMeta: { provider: "p", model: "m" } },
+        } as never;
+      });
+
+      await agentCommand({ message: "hi", to: "+1555" }, runtime);
+      stop();
+
+      const matching = assistantEvents.filter((evt) => evt.text === "hello");
+      expect(matching).toHaveLength(1);
     });
   });
 
@@ -332,6 +370,39 @@ describe("agentCommand", () => {
 
       const callArgs = vi.mocked(runEmbeddedPiAgent).mock.calls.at(-1)?.[0];
       expect(callArgs?.messageChannel).toBe("slack");
+    });
+  });
+
+  it("prefers runContext for embedded routing", async () => {
+    await withTempHome(async (home) => {
+      const store = path.join(home, "sessions.json");
+      mockConfig(home, store);
+
+      await agentCommand(
+        {
+          message: "hi",
+          to: "+1555",
+          channel: "whatsapp",
+          runContext: { messageChannel: "slack", accountId: "acct-2" },
+        },
+        runtime,
+      );
+
+      const callArgs = vi.mocked(runEmbeddedPiAgent).mock.calls.at(-1)?.[0];
+      expect(callArgs?.messageChannel).toBe("slack");
+      expect(callArgs?.agentAccountId).toBe("acct-2");
+    });
+  });
+
+  it("forwards accountId to embedded runs", async () => {
+    await withTempHome(async (home) => {
+      const store = path.join(home, "sessions.json");
+      mockConfig(home, store);
+
+      await agentCommand({ message: "hi", to: "+1555", accountId: "kev" }, runtime);
+
+      const callArgs = vi.mocked(runEmbeddedPiAgent).mock.calls.at(-1)?.[0];
+      expect(callArgs?.agentAccountId).toBe("kev");
     });
   });
 

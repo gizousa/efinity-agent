@@ -47,10 +47,12 @@ import {
 } from "../infra/agent-events.js";
 import { getRemoteSkillEligibility } from "../infra/skills-remote.js";
 import { defaultRuntime, type RuntimeEnv } from "../runtime.js";
+import { formatCliCommand } from "../cli/command-format.js";
 import { applyVerboseOverride } from "../sessions/level-overrides.js";
 import { resolveSendPolicy } from "../sessions/send-policy.js";
 import { resolveMessageChannel } from "../utils/message-channel.js";
 import { deliverAgentCommandResult } from "./agent/delivery.js";
+import { resolveAgentRunContext } from "./agent/run-context.js";
 import { resolveSession } from "./agent/session.js";
 import { updateSessionStoreAfterAgentRun } from "./agent/session-store.js";
 import type { AgentCommandOpts } from "./agent/types.js";
@@ -74,7 +76,7 @@ export async function agentCommand(
     const knownAgents = listAgentIds(cfg);
     if (!knownAgents.includes(agentIdOverride)) {
       throw new Error(
-        `Unknown agent id "${agentIdOverrideRaw}". Use "clawdbot agents list" to see configured agents.`,
+        `Unknown agent id "${agentIdOverrideRaw}". Use "${formatCliCommand("clawdbot agents list")}" to see configured agents.`,
       );
     }
   }
@@ -367,8 +369,9 @@ export async function agentCommand(
     let fallbackProvider = provider;
     let fallbackModel = model;
     try {
+      const runContext = resolveAgentRunContext(opts);
       const messageChannel = resolveMessageChannel(
-        opts.messageChannel,
+        runContext.messageChannel,
         opts.replyChannel ?? opts.channel,
       );
       const fallbackResult = await runWithModelFallback({
@@ -394,6 +397,7 @@ export async function agentCommand(
               extraSystemPrompt: opts.extraSystemPrompt,
               cliSessionId,
               images: opts.images,
+              streamParams: opts.streamParams,
             });
           }
           const authProfileId =
@@ -402,12 +406,20 @@ export async function agentCommand(
             sessionId,
             sessionKey,
             messageChannel,
+            agentAccountId: runContext.accountId,
+            messageTo: opts.replyTo ?? opts.to,
+            messageThreadId: opts.threadId,
+            currentChannelId: runContext.currentChannelId,
+            currentThreadTs: runContext.currentThreadTs,
+            replyToMode: runContext.replyToMode,
+            hasRepliedRef: runContext.hasRepliedRef,
             sessionFile,
             workspaceDir,
             config: cfg,
             skillsSnapshot,
             prompt: body,
             images: opts.images,
+            clientTools: opts.clientTools,
             provider: providerOverride,
             model: modelOverride,
             authProfileId,
@@ -421,8 +433,10 @@ export async function agentCommand(
             lane: opts.lane,
             abortSignal: opts.abortSignal,
             extraSystemPrompt: opts.extraSystemPrompt,
+            streamParams: opts.streamParams,
             agentDir,
             onAgentEvent: (evt) => {
+              // Track lifecycle end for fallback emission below.
               if (
                 evt.stream === "lifecycle" &&
                 typeof evt.data?.phase === "string" &&
@@ -430,11 +444,6 @@ export async function agentCommand(
               ) {
                 lifecycleEnded = true;
               }
-              emitAgentEvent({
-                runId,
-                stream: evt.stream,
-                data: evt.data,
-              });
             },
           });
         },

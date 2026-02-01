@@ -13,8 +13,16 @@ const mockTheme: SearchableSelectListTheme = {
 };
 
 const testItems = [
-  { value: "anthropic/claude-3-opus", label: "anthropic/claude-3-opus", description: "Claude 3 Opus" },
-  { value: "anthropic/claude-3-sonnet", label: "anthropic/claude-3-sonnet", description: "Claude 3 Sonnet" },
+  {
+    value: "anthropic/claude-3-opus",
+    label: "anthropic/claude-3-opus",
+    description: "Claude 3 Opus",
+  },
+  {
+    value: "anthropic/claude-3-sonnet",
+    label: "anthropic/claude-3-sonnet",
+    description: "Claude 3 Sonnet",
+  },
   { value: "openai/gpt-4", label: "openai/gpt-4", description: "GPT-4" },
   { value: "openai/gpt-4-turbo", label: "openai/gpt-4-turbo", description: "GPT-4 Turbo" },
   { value: "google/gemini-pro", label: "google/gemini-pro", description: "Gemini Pro" },
@@ -50,7 +58,11 @@ describe("SearchableSelectList", () => {
     const items = [
       { value: "openrouter/auto", label: "openrouter/auto", description: "Routes to best" },
       { value: "opus-direct", label: "opus-direct", description: "Direct opus model" },
-      { value: "anthropic/claude-3-opus", label: "anthropic/claude-3-opus", description: "Claude 3 Opus" },
+      {
+        value: "anthropic/claude-3-opus",
+        label: "anthropic/claude-3-opus",
+        description: "Claude 3 Opus",
+      },
     ];
     const list = new SearchableSelectList(items, 5, mockTheme);
 
@@ -66,7 +78,11 @@ describe("SearchableSelectList", () => {
 
   it("exact label match beats description match", () => {
     const items = [
-      { value: "provider/other", label: "provider/other", description: "This mentions opus in description" },
+      {
+        value: "provider/other",
+        label: "provider/other",
+        description: "This mentions opus in description",
+      },
       { value: "provider/opus-model", label: "provider/opus-model", description: "Something else" },
     ];
     const list = new SearchableSelectList(items, 5, mockTheme);
@@ -78,6 +94,21 @@ describe("SearchableSelectList", () => {
     // Label match should win over description match
     const selected = list.getSelectedItem();
     expect(selected?.value).toBe("provider/opus-model");
+  });
+
+  it("orders description matches by earliest index", () => {
+    const items = [
+      { value: "first", label: "first", description: "prefix opus value" },
+      { value: "second", label: "second", description: "opus suffix value" },
+    ];
+    const list = new SearchableSelectList(items, 5, mockTheme);
+
+    for (const ch of "opus") {
+      list.handleInput(ch);
+    }
+
+    const selected = list.getSelectedItem();
+    expect(selected?.value).toBe("second");
   });
 
   it("filters items with fuzzy matching", () => {
@@ -107,6 +138,17 @@ describe("SearchableSelectList", () => {
     expect(selected?.value).toBe("gpt-4");
   });
 
+  it("highlights matches in rendered output", () => {
+    const list = new SearchableSelectList(testItems, 5, mockTheme);
+
+    for (const ch of "gpt") {
+      list.handleInput(ch);
+    }
+
+    const output = list.render(80).join("\n");
+    expect(output).toContain("*gpt*");
+  });
+
   it("shows no match message when filter yields no results", () => {
     const list = new SearchableSelectList(testItems, 5, mockTheme);
 
@@ -116,7 +158,7 @@ describe("SearchableSelectList", () => {
     list.handleInput("z");
 
     const output = list.render(80);
-    expect(output.some((line) => line.includes("No matching"))).toBe(true);
+    expect(output.some((line) => line.includes("No matches"))).toBe(true);
   });
 
   it("navigates with arrow keys", () => {

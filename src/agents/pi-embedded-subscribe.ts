@@ -1,6 +1,6 @@
 import { parseReplyDirectives } from "../auto-reply/reply/reply-directives.js";
 import { formatToolAggregate } from "../auto-reply/tool-meta.js";
-import { createSubsystemLogger } from "../logging.js";
+import { createSubsystemLogger } from "../logging/subsystem.js";
 import type { InlineCodeState } from "../markdown/code-spans.js";
 import { buildCodeSpanIndex, createInlineCodeState } from "../markdown/code-spans.js";
 import { EmbeddedBlockChunker } from "./pi-embedded-block-chunker.js";
@@ -342,13 +342,23 @@ export function subscribeEmbeddedPiSession(params: SubscribeEmbeddedPiSessionPar
     assistantTexts.push(chunk);
     if (!params.onBlockReply) return;
     const splitResult = parseReplyDirectives(chunk);
-    const { text: cleanedText, mediaUrls, audioAsVoice } = splitResult;
+    const {
+      text: cleanedText,
+      mediaUrls,
+      audioAsVoice,
+      replyToId,
+      replyToTag,
+      replyToCurrent,
+    } = splitResult;
     // Skip empty payloads, but always emit if audioAsVoice is set (to propagate the flag)
     if (!cleanedText && (!mediaUrls || mediaUrls.length === 0) && !audioAsVoice) return;
     void params.onBlockReply({
       text: cleanedText,
       mediaUrls: mediaUrls?.length ? mediaUrls : undefined,
       audioAsVoice,
+      replyToId,
+      replyToTag,
+      replyToCurrent,
     });
   };
 

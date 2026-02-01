@@ -1,6 +1,7 @@
 import {
   type Component,
   fuzzyFilter,
+  getEditorKeybindings,
   Input,
   isKeyRelease,
   matchesKey,
@@ -8,6 +9,8 @@ import {
   type SelectListTheme,
   truncateToWidth,
 } from "@mariozechner/pi-tui";
+import { visibleWidth } from "../../terminal/ansi.js";
+import { findWordBoundaryIndex } from "./fuzzy-filter.js";
 
 export interface SearchableSelectListTheme extends SelectListTheme {
   searchPrompt: (text: string) => string;
@@ -63,8 +66,8 @@ export class SearchableSelectList implements Component {
     const q = query.toLowerCase();
     type ScoredItem = { item: SelectItem; score: number };
     const exactLabel: ScoredItem[] = [];
-    const wordBoundary: SelectItem[] = [];
-    const descriptionMatches: SelectItem[] = [];
+    const wordBoundary: ScoredItem[] = [];
+    const descriptionMatches: ScoredItem[] = [];
     const fuzzyCandidates: SelectItem[] = [];
 
     for (const item of this.items) {
@@ -79,40 +82,68 @@ export class SearchableSelectList implements Component {
         continue;
       }
       // Tier 2: Word-boundary prefix in label (score 100-199)
-      if (this.matchesWordBoundary(label, q)) {
-        wordBoundary.push(item);
+      const wordBoundaryIndex = findWordBoundaryIndex(label, q);
+      if (wordBoundaryIndex !== null) {
+        wordBoundary.push({ item, score: wordBoundaryIndex });
         continue;
       }
       // Tier 3: Exact substring in description (score 200-299)
-      if (desc.indexOf(q) !== -1) {
-        descriptionMatches.push(item);
+      const descIndex = desc.indexOf(q);
+      if (descIndex !== -1) {
+        descriptionMatches.push({ item, score: descIndex });
         continue;
       }
       // Tier 4: Fuzzy match (score 300+)
       fuzzyCandidates.push(item);
     }
 
-    exactLabel.sort((a, b) => a.score - b.score);
-    const fuzzyMatches = fuzzyFilter(fuzzyCandidates, query, (i) => `${i.label} ${i.description ?? ""}`);
+    exactLabel.sort(this.compareByScore);
+    wordBoundary.sort(this.compareByScore);
+    descriptionMatches.sort(this.compareByScore);
+    const fuzzyMatches = fuzzyFilter(
+      fuzzyCandidates,
+      query,
+      (i) => `${i.label} ${i.description ?? ""}`,
+    );
     return [
       ...exactLabel.map((s) => s.item),
-      ...wordBoundary,
-      ...descriptionMatches,
+      ...wordBoundary.map((s) => s.item),
+      ...descriptionMatches.map((s) => s.item),
       ...fuzzyMatches,
     ];
   }
 
-  /**
-   * Check if query matches at a word boundary in text.
-   * E.g., "gpt" matches "openai/gpt-4" at the "gpt" word boundary.
-   */
-  private matchesWordBoundary(text: string, query: string): boolean {
-    const wordBoundaryRegex = new RegExp(`(?:^|[\\s\\-_./:])(${this.escapeRegex(query)})`, "i");
-    return wordBoundaryRegex.test(text);
-  }
-
   private escapeRegex(str: string): string {
     return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  private compareByScore = (
+    a: { item: SelectItem; score: number },
+    b: { item: SelectItem; score: number },
+  ) => {
+    if (a.score !== b.score) return a.score - b.score;
+    return this.getItemLabel(a.item).localeCompare(this.getItemLabel(b.item));
+  };
+
+  private getItemLabel(item: SelectItem): string {
+    return item.label || item.value;
+  }
+
+  private highlightMatch(text: string, query: string): string {
+    const tokens = query
+      .trim()
+      .split(/\s+/)
+      .map((token) => token.toLowerCase())
+      .filter((token) => token.length > 0);
+    if (tokens.length === 0) return text;
+
+    const uniqueTokens = Array.from(new Set(tokens)).sort((a, b) => b.length - a.length);
+    let result = text;
+    for (const token of uniqueTokens) {
+      const regex = new RegExp(this.escapeRegex(token), "gi");
+      result = result.replace(regex, (match) => this.theme.matchHighlight(match));
+    }
+    return result;
   }
 
   setSelectedIndex(index: number) {
@@ -127,23 +158,29 @@ export class SearchableSelectList implements Component {
     const lines: string[] = [];
 
     // Search input line
-    const prompt = this.theme.searchPrompt("search: ");
-    const inputWidth = Math.max(1, width - 8);
+    const promptText = "search: ";
+    const prompt = this.theme.searchPrompt(promptText);
+    const inputWidth = Math.max(1, width - visibleWidth(prompt));
     const inputLines = this.searchInput.render(inputWidth);
     const inputText = inputLines[0] ?? "";
     lines.push(`${prompt}${this.theme.searchInput(inputText)}`);
     lines.push(""); // Spacer
 
+    const query = this.searchInput.getValue().trim();
+
     // If no items match filter, show message
     if (this.filteredItems.length === 0) {
-      lines.push(this.theme.noMatch("  No matching models"));
+      lines.push(this.theme.noMatch("  No matches"));
       return lines;
     }
 
     // Calculate visible range with scrolling
     const startIndex = Math.max(
       0,
-      Math.min(this.selectedIndex - Math.floor(this.maxVisible / 2), this.filteredItems.length - this.maxVisible),
+      Math.min(
+        this.selectedIndex - Math.floor(this.maxVisible / 2),
+        this.filteredItems.length - this.maxVisible,
+      ),
     );
     const endIndex = Math.min(startIndex + this.maxVisible, this.filteredItems.length);
 
@@ -152,50 +189,7 @@ export class SearchableSelectList implements Component {
       const item = this.filteredItems[i];
       if (!item) continue;
       const isSelected = i === this.selectedIndex;
-      let line = "";
-
-      if (isSelected) {
-        const prefixWidth = 2;
-        const displayValue = item.label || item.value;
-        if (item.description && width > 40) {
-          const maxValueWidth = Math.min(30, width - prefixWidth - 4);
-          const truncatedValue = truncateToWidth(displayValue, maxValueWidth, "");
-          const spacing = " ".repeat(Math.max(1, 32 - truncatedValue.length));
-          const descriptionStart = prefixWidth + truncatedValue.length + spacing.length;
-          const remainingWidth = width - descriptionStart - 2;
-          if (remainingWidth > 10) {
-            const truncatedDesc = truncateToWidth(item.description, remainingWidth, "");
-            line = this.theme.selectedText(`→ ${truncatedValue}${spacing}${truncatedDesc}`);
-          } else {
-            const maxWidth = width - prefixWidth - 2;
-            line = this.theme.selectedText(`→ ${truncateToWidth(displayValue, maxWidth, "")}`);
-          }
-        } else {
-          const maxWidth = width - prefixWidth - 2;
-          line = this.theme.selectedText(`→ ${truncateToWidth(displayValue, maxWidth, "")}`);
-        }
-      } else {
-        const displayValue = item.label || item.value;
-        const prefix = "  ";
-        if (item.description && width > 40) {
-          const maxValueWidth = Math.min(30, width - prefix.length - 4);
-          const truncatedValue = truncateToWidth(displayValue, maxValueWidth, "");
-          const spacing = " ".repeat(Math.max(1, 32 - truncatedValue.length));
-          const descriptionStart = prefix.length + truncatedValue.length + spacing.length;
-          const remainingWidth = width - descriptionStart - 2;
-          if (remainingWidth > 10) {
-            const truncatedDesc = truncateToWidth(item.description, remainingWidth, "");
-            line = `${prefix}${truncatedValue}${spacing}${this.theme.description(truncatedDesc)}`;
-          } else {
-            const maxWidth = width - prefix.length - 2;
-            line = `${prefix}${truncateToWidth(displayValue, maxWidth, "")}`;
-          }
-        } else {
-          const maxWidth = width - prefix.length - 2;
-          line = `${prefix}${truncateToWidth(displayValue, maxWidth, "")}`;
-        }
-      }
-      lines.push(line);
+      lines.push(this.renderItemLine(item, isSelected, width, query));
     }
 
     // Show scroll indicator if needed
@@ -207,17 +201,61 @@ export class SearchableSelectList implements Component {
     return lines;
   }
 
+  private renderItemLine(
+    item: SelectItem,
+    isSelected: boolean,
+    width: number,
+    query: string,
+  ): string {
+    const prefix = isSelected ? "→ " : "  ";
+    const prefixWidth = prefix.length;
+    const displayValue = this.getItemLabel(item);
+
+    if (item.description && width > 40) {
+      const maxValueWidth = Math.min(30, width - prefixWidth - 4);
+      const truncatedValue = truncateToWidth(displayValue, maxValueWidth, "");
+      const valueText = this.highlightMatch(truncatedValue, query);
+      const spacing = " ".repeat(Math.max(1, 32 - visibleWidth(valueText)));
+      const descriptionStart = prefixWidth + visibleWidth(valueText) + spacing.length;
+      const remainingWidth = width - descriptionStart - 2;
+      if (remainingWidth > 10) {
+        const truncatedDesc = truncateToWidth(item.description, remainingWidth, "");
+        const descText = isSelected
+          ? this.highlightMatch(truncatedDesc, query)
+          : this.highlightMatch(this.theme.description(truncatedDesc), query);
+        const line = `${prefix}${valueText}${spacing}${descText}`;
+        return isSelected ? this.theme.selectedText(line) : line;
+      }
+    }
+
+    const maxWidth = width - prefixWidth - 2;
+    const truncatedValue = truncateToWidth(displayValue, maxWidth, "");
+    const valueText = this.highlightMatch(truncatedValue, query);
+    const line = `${prefix}${valueText}`;
+    return isSelected ? this.theme.selectedText(line) : line;
+  }
+
   handleInput(keyData: string): void {
     if (isKeyRelease(keyData)) return;
 
+    const allowVimNav = !this.searchInput.getValue().trim();
+
     // Navigation keys
-    if (matchesKey(keyData, "up") || matchesKey(keyData, "ctrl+p")) {
+    if (
+      matchesKey(keyData, "up") ||
+      matchesKey(keyData, "ctrl+p") ||
+      (allowVimNav && keyData === "k")
+    ) {
       this.selectedIndex = Math.max(0, this.selectedIndex - 1);
       this.notifySelectionChange();
       return;
     }
 
-    if (matchesKey(keyData, "down") || matchesKey(keyData, "ctrl+n")) {
+    if (
+      matchesKey(keyData, "down") ||
+      matchesKey(keyData, "ctrl+n") ||
+      (allowVimNav && keyData === "j")
+    ) {
       this.selectedIndex = Math.min(this.filteredItems.length - 1, this.selectedIndex + 1);
       this.notifySelectionChange();
       return;
@@ -231,7 +269,8 @@ export class SearchableSelectList implements Component {
       return;
     }
 
-    if (matchesKey(keyData, "escape")) {
+    const kb = getEditorKeybindings();
+    if (kb.matches(keyData, "selectCancel")) {
       if (this.onCancel) {
         this.onCancel();
       }

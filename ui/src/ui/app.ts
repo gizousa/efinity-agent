@@ -28,6 +28,8 @@ import type {
   ExecApprovalsFile,
   ExecApprovalsSnapshot,
 } from "./controllers/exec-approvals";
+import type { DevicePairingList } from "./controllers/devices";
+import type { ExecApprovalRequest } from "./controllers/exec-approval";
 import {
   resetToolStream as resetToolStreamInternal,
   toggleToolOutput as toggleToolOutputInternal,
@@ -108,6 +110,9 @@ export class ClawdbotApp extends LitElement {
 
   @state() nodesLoading = false;
   @state() nodes: Array<Record<string, unknown>> = [];
+  @state() devicesLoading = false;
+  @state() devicesError: string | null = null;
+  @state() devicesList: DevicePairingList | null = null;
   @state() execApprovalsLoading = false;
   @state() execApprovalsSaving = false;
   @state() execApprovalsDirty = false;
@@ -116,6 +121,9 @@ export class ClawdbotApp extends LitElement {
   @state() execApprovalsSelectedAgent: string | null = null;
   @state() execApprovalsTarget: "gateway" | "node" = "gateway";
   @state() execApprovalsTargetNodeId: string | null = null;
+  @state() execApprovalQueue: ExecApprovalRequest[] = [];
+  @state() execApprovalBusy = false;
+  @state() execApprovalError: string | null = null;
 
   @state() configLoading = false;
   @state() configRaw = "{\n}\n";
@@ -131,8 +139,11 @@ export class ClawdbotApp extends LitElement {
   @state() configSchemaLoading = false;
   @state() configUiHints: ConfigUiHints = {};
   @state() configForm: Record<string, unknown> | null = null;
+  @state() configFormOriginal: Record<string, unknown> | null = null;
   @state() configFormDirty = false;
   @state() configFormMode: "form" | "raw" = "form";
+  @state() configSearchQuery = "";
+  @state() configActiveSection: string | null = null;
 
   @state() channelsLoading = false;
   @state() channelsSnapshot: ChannelsStatusSnapshot | null = null;
@@ -359,6 +370,24 @@ export class ClawdbotApp extends LitElement {
 
   async handleChannelConfigReload() {
     await handleChannelConfigReloadInternal(this);
+  }
+
+  async handleExecApprovalDecision(decision: "allow-once" | "allow-always" | "deny") {
+    const active = this.execApprovalQueue[0];
+    if (!active || !this.client || this.execApprovalBusy) return;
+    this.execApprovalBusy = true;
+    this.execApprovalError = null;
+    try {
+      await this.client.request("exec.approval.resolve", {
+        id: active.id,
+        decision,
+      });
+      this.execApprovalQueue = this.execApprovalQueue.filter((entry) => entry.id !== active.id);
+    } catch (err) {
+      this.execApprovalError = `Exec approval failed: ${String(err)}`;
+    } finally {
+      this.execApprovalBusy = false;
+    }
   }
 
   // Sidebar handlers for tool output viewing

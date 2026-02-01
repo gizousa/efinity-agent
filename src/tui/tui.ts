@@ -22,10 +22,7 @@ import { editorTheme, theme } from "./theme/theme.js";
 import { createCommandHandlers } from "./tui-command-handlers.js";
 import { createEventHandlers } from "./tui-event-handlers.js";
 import { formatTokens } from "./tui-formatters.js";
-import {
-  buildWaitingStatusMessage,
-  defaultWaitingPhrases,
-} from "./tui-waiting.js";
+import { buildWaitingStatusMessage, defaultWaitingPhrases } from "./tui-waiting.js";
 import { createOverlayHandlers } from "./tui-overlays.js";
 import { createSessionActions } from "./tui-session-actions.js";
 import type {
@@ -191,11 +188,12 @@ export async function runTui(opts: TuiOptions) {
     password: opts.password,
   });
 
+  const tui = new TUI(new ProcessTerminal());
   const header = new Text("", 1, 0);
   const statusContainer = new Container();
   const footer = new Text("", 1, 0);
   const chatLog = new ChatLog();
-  const editor = new CustomEditor(editorTheme);
+  const editor = new CustomEditor(tui, editorTheme);
   const root = new Container();
   root.addChild(header);
   root.addChild(chatLog);
@@ -215,7 +213,6 @@ export async function runTui(opts: TuiOptions) {
     );
   };
 
-  const tui = new TUI(new ProcessTerminal());
   tui.addChild(root);
   tui.setFocus(editor);
 
@@ -335,8 +332,7 @@ export async function runTui(opts: TuiOptions) {
     // Pick a phrase once per waiting session.
     if (!waitingPhrase) {
       const idx = Math.floor(Math.random() * defaultWaitingPhrases.length);
-      waitingPhrase =
-        defaultWaitingPhrases[idx] ?? defaultWaitingPhrases[0] ?? "waiting";
+      waitingPhrase = defaultWaitingPhrases[idx] ?? defaultWaitingPhrases[0] ?? "waiting";
     }
 
     waitingTick = 0;
